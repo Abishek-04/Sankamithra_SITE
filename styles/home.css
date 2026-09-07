@@ -683,3 +683,171 @@
 .tstm__facts b { font-family: var(--font-display); font-size: 1.05rem; color: var(--tx-hi); letter-spacing: -0.02em; }
 
 /* muted text tokens need an ink counterpart inside day sections */
+
+/* ==========================================================================
+   Channel — the YouTube wall
+   ========================================================================== */
+
+.vgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(268px, 100%), 1fr));
+  gap: clamp(0.85rem, 1.8vw, 1.4rem);
+  grid-auto-rows: 1fr;
+}
+.vgrid > div { height: 100%; }
+@media (max-width: 560px) { .vgrid { grid-template-columns: 1fr; } }
+
+.vcard {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: linear-gradient(168deg, var(--surface-a), var(--surface-b));
+  box-shadow: inset 0 0 0 1px var(--line);
+  transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease);
+}
+.vcard:hover {
+  transform: translateY(-6px);
+  box-shadow: inset 0 0 0 1px var(--accent-line), var(--shadow);
+}
+
+.vcard__media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  overflow: hidden;
+}
+.vplay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  display: block;
+  cursor: pointer;
+}
+.vcard__thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s var(--ease), filter 0.4s var(--ease);
+}
+.vcard:hover .vcard__thumb { transform: scale(1.04); filter: brightness(0.8); }
+
+.vplay__btn {
+  position: absolute;
+  left: 0.6rem; bottom: 0.6rem;
+  width: 42px; height: 42px;
+  display: grid;
+  place-items: center;
+  padding-left: 3px;
+  border-radius: 50%;
+  background: var(--grad-ember);
+  color: #fff;
+  box-shadow: 0 10px 26px -10px rgba(245, 0, 38, 0.9);
+  transition: transform 0.45s var(--ease-spring), box-shadow 0.4s var(--ease);
+  pointer-events: none;
+}
+.vplay__btn svg { width: 17px; height: 20px; }
+.vplay:hover .vplay__btn {
+  transform: scale(1.12);
+  box-shadow: 0 14px 32px -8px rgba(255, 122, 24, 0.95);
+}
+/* a soft floor so the controls stay legible on a bright frame */
+.vplay::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 42%;
+  background: linear-gradient(to top, rgba(7, 6, 10, 0.72), transparent);
+  pointer-events: none;
+}
+
+.vcard__dur {
+  position: absolute;
+  right: 0.55rem; bottom: 0.55rem;
+  padding: 0.15rem 0.4rem;
+  border-radius: 5px;
+  background: rgba(7, 6, 10, 0.86);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.02em;
+  pointer-events: none;
+}
+
+.vplay__frame { width: 100%; height: 100%; border: 0; }
+
+.vcard__body { padding: 0.85rem 0.95rem 1rem; display: grid; gap: 0.4rem; align-content: start; flex: 1; }
+.vcard__title {
+  min-height: 2.4em;
+  font-size: 0.94rem;
+  font-weight: 700;
+  line-height: 1.28;
+  letter-spacing: -0.015em;
+  color: var(--tx-hi);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.vcard__meta {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.03em;
+  color: var(--tx-lo);
+}
+.vcard__links { display: flex; flex-wrap: nowrap; gap: 0.35rem; margin-top: 0.2rem; align-items: center; }
+.vcard__sno,
+.vcard__yt {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  padding: 0.26rem 0.5rem;
+  border-radius: var(--r-pill);
+  transition: background 0.3s var(--ease), color 0.3s var(--ease);
+}
+.vcard__sno {
+  color: var(--accent);
+  background: var(--accent-wash);
+  box-shadow: inset 0 0 0 1px var(--accent-line);
+  min-width: 0;
+  flex: 0 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.vcard__sno:hover { background: var(--grad-ember); color: #fff; box-shadow: none; }
+.vcard__yt {
+  color: var(--tx-lo);
+  box-shadow: inset 0 0 0 1px var(--line);
+  flex: 0 0 auto;
+  margin-left: auto;
+}
+.vcard__yt:hover { color: var(--tx-hi); box-shadow: inset 0 0 0 1px var(--line-2); }
+
+.yt-mark { display: inline-grid; place-items: center; color: #ff0033; }
+
+/* --------------------------------- the single demo on a product page ------ */
+
+.pdp__video {
+  display: grid;
+  gap: 0.85rem;
+  padding: 1.15rem 1.25rem;
+  border-radius: var(--r);
+  background: var(--surface-flat);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+.pdp__video h3 {
+  font-family: var(--font-mono);
+  font-size: var(--t-micro);
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.pdp__video .vcard__media {
+  border-radius: var(--r-sm);
+  aspect-ratio: 16 / 9;
+}

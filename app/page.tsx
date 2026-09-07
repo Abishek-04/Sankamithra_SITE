@@ -8,6 +8,7 @@ import "@/styles/home.css";
 import HomeCatalogue from "@/components/HomeCatalogue";
 import Testimonials from "@/components/Testimonials";
 import VideoReel from "@/components/VideoReel";
+import ChannelSection from "@/components/ChannelSection";
 import EnquiryForm from "@/components/EnquiryForm";
 import { site } from "@/lib/site";
 import { getProducts } from "@/lib/products";
@@ -306,6 +307,9 @@ export default function Home() {
       <section className="section section--tight">
         <div className="shell"><VideoReel /></div>
       </section>
+
+      {/* -------------------------------------------------------- channel */}
+      <ChannelSection />
 
       {/* ------------------------------------------------------ assurance */}
       <section className="section section--tight">

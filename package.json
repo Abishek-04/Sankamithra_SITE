@@ -8,8 +8,7 @@
     "start": "npx serve@latest out -l 3000",
     "lint": "next lint",
     "catalogue": "python3 tools/build-catalogue.py",
-    "blur": "node tools/gen-blur.mjs",
-    "analyze": "ANALYZE=1 next build",
+    "videos": "node tools/fetch-videos.mjs",
     "verify": "node tools/verify.mjs"
   },
   "dependencies": {

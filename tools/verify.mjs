@@ -129,6 +129,57 @@ const pdp = await page.evaluate(() => {
 console.log(`  price=${pdp.price}  gallery=${pdp.gallery}`);
 allOk &= await step("related grid");
 
+/* ---- channel wall -------------------------------------------------- */
+console.log(`\n=== /#videos (channel) ===`);
+await page.goto(`${BASE}/`, { waitUntil: "networkidle2", timeout: 45000 });
+await scrollThrough();
+await new Promise((r) => setTimeout(r, 900));
+
+const v0 = await page.evaluate(() => ({
+  cards: document.querySelectorAll(".vcard").length,
+  visible: [...document.querySelectorAll(".vcard")]
+    .filter((n) => parseFloat(getComputedStyle(n).opacity) > 0.9).length,
+  thumbs: document.querySelectorAll(".vcard__thumb").length,
+  loadedThumbs: [...document.querySelectorAll(".vcard__thumb")].filter((i) => i.naturalWidth > 0).length,
+  iframes: document.querySelectorAll('iframe[src*="youtube"]').length,
+  productLinks: document.querySelectorAll(".vcard__sno").length,
+}));
+const wallOk = v0.cards === 30 && v0.visible === v0.cards && v0.iframes === 0 && v0.productLinks === 25;
+console.log(`  ${wallOk ? "PASS" : "FAIL"}  wall                       ${v0.visible}/${v0.cards} cards visible · ${v0.loadedThumbs}/${v0.thumbs} thumbs loaded · ${v0.productLinks} product links · ${v0.iframes} iframes at rest`);
+allOk &= wallOk;
+
+/* filter, then play */
+await page.evaluate(() => [...document.querySelectorAll("#videos .pill")].find((b) => b.textContent.includes("One Sound"))?.click());
+await new Promise((r) => setTimeout(r, 700));
+const filtered = await page.evaluate(() =>
+  [...document.querySelectorAll("#videos .vgrid > div")].filter((d) => !d.hidden).length);
+console.log(`  ${filtered === 12 ? "PASS" : "FAIL"}  filter → One Sound         ${filtered} shown (expect 12)`);
+allOk &= filtered === 12;
+
+await page.evaluate(() => document.querySelector("#videos .vgrid > div:not([hidden]) .vplay")?.click());
+await new Promise((r) => setTimeout(r, 1200));
+const played = await page.evaluate(() => {
+  const f = document.querySelector('iframe[src*="youtube-nocookie.com/embed"]');
+  return { present: !!f, src: f?.src ?? null };
+});
+console.log(`  ${played.present ? "PASS" : "FAIL"}  click → player mounts      ${played.src ? played.src.split("/embed/")[1].slice(0, 24) : "no iframe"}`);
+allOk &= played.present;
+
+/* ---- demo on a product page ---------------------------------------- */
+await page.goto(`${BASE}/products/S201/`, { waitUntil: "networkidle2", timeout: 45000 });
+const demo = await page.evaluate(() => ({
+  block: !!document.querySelector(".pdp__video"),
+  thumb: document.querySelector(".pdp__video .vcard__thumb")?.naturalWidth ?? 0,
+  iframes: document.querySelectorAll('iframe[src*="youtube"]').length,
+}));
+console.log(`  ${demo.block && demo.thumb > 0 && !demo.iframes ? "PASS" : "FAIL"}  S201 demo                  block=${demo.block} thumb=${demo.thumb}px iframes=${demo.iframes}`);
+allOk &= demo.block && demo.thumb > 0 && demo.iframes === 0;
+
+await page.goto(`${BASE}/products/S506/`, { waitUntil: "networkidle2", timeout: 45000 });
+const noDemo = await page.evaluate(() => !document.querySelector(".pdp__video"));
+console.log(`  ${noDemo ? "PASS" : "FAIL"}  S506 has no demo           (correctly absent)`);
+allOk &= noDemo;
+
 console.log(`\nconsole errors: ${errors.length ? JSON.stringify(errors.slice(0, 4)) : "none"}`);
 console.log(allOk && !errors.length ? "\nALL PASS\n" : "\nFAILURES PRESENT\n");
 

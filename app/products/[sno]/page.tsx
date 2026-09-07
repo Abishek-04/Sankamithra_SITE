@@ -8,6 +8,8 @@ import "@/styles/catalogue.css";
 import ProductGallery from "@/components/ProductGallery";
 import ProductGrid from "@/components/ProductGrid";
 import { getProduct, getProducts, getRelated } from "@/lib/products";
+import { getVideoForProduct, shortTitle, thumb, thumbHi, thumbSrcSet, watchUrl } from "@/lib/videos";
+import VideoPlayer from "@/components/VideoPlayer";
 import { toCard } from "@/lib/card";
 import { money, moneyFine, perLabel, unitPrice, waLink } from "@/lib/format";
 import { site } from "@/lib/site";
@@ -51,6 +53,7 @@ export default async function ProductPage({ params }: { params: Promise<{ sno: s
 
   const unit = unitPrice(p);
   const related = getRelated(p);
+  const video = getVideoForProduct(p.sno);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -71,9 +74,23 @@ export default async function ProductPage({ params }: { params: Promise<{ sno: s
     },
   };
 
+  const videoLd = video && {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: shortTitle(video.title),
+    description: `${p.name} (${p.sno}) demonstrated on the Sankamithra Fireworks range.`,
+    thumbnailUrl: thumbHi(video.id),
+    embedUrl: `https://www.youtube-nocookie.com/embed/${video.id}`,
+    contentUrl: watchUrl(video.id),
+    uploadDate: "2024-11-01",
+  };
+
   return (
     <main id="main">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      {videoLd && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(videoLd) }} />
+      )}
 
       <section className="page-head noise tone-night" style={{ paddingBottom: "clamp(1rem,2.5vw,1.75rem)" }}>
         <div className="shell page-head__inner">
@@ -118,6 +135,40 @@ export default async function ProductPage({ params }: { params: Promise<{ sno: s
               </a>
               <a className="btn btn--lg btn--ghost" href={site.shopUrl} target="_blank" rel="noopener">Buy in the shop</a>
             </div>
+
+            {video && (
+              <div className="pdp__video">
+                <h3>Watch it fire</h3>
+                <div className="vcard vcard--demo">
+                  <div className="vcard__media">
+                    <VideoPlayer
+                      video={video}
+                      poster={
+                        <img
+                          className="vcard__thumb"
+                          src={thumbHi(video.id)}
+                          srcSet={thumbSrcSet(video.id)}
+                          sizes="(max-width: 900px) 92vw, 40vw"
+                          alt=""
+                          width={1280}
+                          height={720}
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      }
+                    >
+                      {video.duration && <span className="vcard__dur">{video.duration}</span>}
+                    </VideoPlayer>
+                  </div>
+                </div>
+                <p className="form-note">
+                  {shortTitle(video.title)} — filmed on our own range.{" "}
+                  <a href={watchUrl(video.id)} target="_blank" rel="noopener" style={{ color: "var(--accent)" }}>
+                    Watch on YouTube
+                  </a>
+                </p>
+              </div>
+            )}
 
             <div className="pdp__terms">
               <h3>Rate terms</h3>

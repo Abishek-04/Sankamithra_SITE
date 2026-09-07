@@ -16,6 +16,7 @@ export const site = {
     ],
   },
 
+  youtube: "https://www.youtube.com/@SankamithraCrackers",
   shopUrl: "https://thunder.sankamithra.com/",
   whatsapp: "919489239970",
   phonePrimary: "+919489239970",
@@ -40,5 +41,6 @@ export const nav = [
   { href: "/#business", label: "What We Do", spy: "business" },
   { href: "/#manufacturing", label: "Manufacturing", spy: "manufacturing" },
   { href: "/products", label: "Catalogue", spy: null },
+  { href: "/#videos", label: "Videos", spy: "videos" },
   { href: "/#contact", label: "Contact", spy: "contact" },
 ] as const;
