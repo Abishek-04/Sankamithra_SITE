@@ -1,0 +1,237 @@
+.footer{
+    width:100%;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color:black;
+    display:flex;
+    padding:2rem;
+}
+
+.footer .left{
+    display:flex;
+    flex-direction: column;
+    gap:20px;
+    flex-basis: 40%;
+}
+
+.footer .left h2{
+    font-size: 36px;
+    color:#D6D4CC;
+    text-transform: upperCase;
+
+}
+
+.footer .left .frame{
+    width:100%;
+    height:auto;
+    
+}
+.footer .left .frame iframe{
+     width:100%;
+     min-height: 300px;
+}
+.footer .left h2 span{
+    font-size: 12px;
+}
+.footer .left h2 span img{
+    width:14px;
+    height:14px;
+}
+
+.footer .left form span{
+   display:flex;
+   width:70%;
+   gap:20px;
+   align-items: center;
+    justify-content: center;
+}
+.footer .left form span i{
+ font-size: 30px;
+ color:#D6D4CC;
+}
+.footer .left form span img{
+    width:40px;
+    height:40px;
+}
+.footer .left form span input{
+    border:none;
+    background: transparent;
+    width:100%;
+    height:65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #D6D4CC;
+    color:#ffff;
+    font-size:40px ;
+}
+.footer .left form span input::placeholder{
+    color:#FF0F24;
+    font-size: 40px;
+}
+.footer .left form span input:active{
+   border:none;
+}
+.footer .left form span input:focus{
+    outline:none;   
+}
+.footer .right{
+    flex-basis: 40%;
+    display:flex;
+    flex-direction: column;
+    gap:50px;
+}
+.footer .right .head{
+    display:flex;
+    justify-content: space-between;
+    width:70%;
+}
+.footer .right .foot{
+    display:flex;
+    justify-content: space-between;
+
+}
+
+.quicklinks{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+.quicklinks p{
+    color:#FF0F24;
+    font-size: 14px;
+    font-family: "Inter",sans-serif;
+}
+.quicklinks div{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+.quicklinks div a{
+    text-decoration: none;
+    color:#fff;
+    font-size: 14px;
+    width: fit-content;
+} 
+
+.contactus{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+.contactus p{
+    color:#FF0F24;
+    font-size: 14px;
+    font-family: "Inter",sans-serif;
+}
+.contactus div{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+.contactus  a{
+    text-decoration: none;
+    color:#fff;
+    font-size: 16px;
+} 
+.footer .right .foot{
+    display:flex;
+    justify-content: space-between;
+    width:100%;
+    flex-wrap: wrap;
+    
+}
+.footer .right .foot  .p1{
+ color:#FF0F24;
+    font-size: 14px;
+    font-family: "Inter",sans-serif;
+
+}
+.footer .right .foot .location .p2{
+    font-size: 16px;
+    color:#fff
+
+}
+.footer .right .designed{
+    width:100%;
+    display:flex;
+    justify-content: center;
+    color:#fff;
+    gap:10px
+}
+.footer .right .foot  a{
+     text-decoration: none;
+    color:#fff;
+    font-size: 14px;
+    font-family: "Inter",sans-serif;
+}
+.footer .right .foot span{
+     color:#FF0F24;
+     white-space: nowrap;
+}
+.footer .right .designed img{
+    width:100px;
+    height:auto;
+}
+
+@media screen and (max-width:1100px){
+    .footer{
+        padding:2rem 0px
+    }
+   
+    .footer .right {
+        min-width: 440px;
+    }
+     .footer .left h2{
+        font-size: 33px;
+     }
+}
+@media screen and (max-width:950px){
+    .footer{
+       flex-wrap: wrap;
+    }
+    .footer .left .frame iframe{
+     width:100%;
+     min-height: 300px;
+     height: auto;
+}
+ .footer .left{
+        min-width: 500px;
+        flex-basis: 70%;
+    }
+     .footer .right{
+        flex-basis: 70%;
+     }
+     .footer .left h2{
+        font-size: 30px;
+     }
+}
+@media screen and (max-width:600px){
+     .footer .left{
+     min-width: 300px;
+     flex-basis: 90%;
+    }
+     .footer .right .head{
+        gap:30px;
+     }
+     .footer .right {
+        min-width: 300px;
+        flex-basis: 90%;
+    }
+    .footer .right .foot{
+        gap: 20px;
+        /* flex-direction: column; */
+    }
+     .footer .left h2{
+        font-size: 26px;
+     }
+}
+@media screen and (max-width:450px){
+       .footer .right .head{
+        gap:30px;
+        width: 100%;
+     }
+      .footer .left h2{
+        font-size: 24px;
+     }
+}

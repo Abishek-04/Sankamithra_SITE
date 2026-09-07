@@ -1,0 +1,170 @@
+.ultimateSale{
+    width:80%;
+    margin:5rem auto;
+    display:flex;
+    gap:20px;
+    flex-wrap: wrap;
+}
+
+.ultimateSale .card{
+    display:flex;
+    flex-direction: column;
+    flex-basis: calc(33.33% - 20px);
+   
+    border: none;
+    
+}
+
+.ultimateSale .card img{
+    width:100%;
+    height:auto;    
+}
+
+.ultimateSale .card:nth-child(2){
+    justify-content: space-between;
+
+}
+.ultimateSale .card .center{
+     display:flex;
+     flex-direction: column;
+     justify-content: center;
+     gap:10px;
+     align-items: center;
+     padding:10px;
+     /* font-family: "Poppins",sans-serif; */
+     
+}
+
+.ultimateSale .card .center h2{
+    font-size: 91px;
+    color:#484848;
+    margin: 0;
+    font-weight: 500;
+  
+}
+
+.ultimateSale .card .center h1{
+    font-size:187px;
+    color:transparent;
+    -webkit-text-stroke:1px #484848;
+    margin: 0;
+    line-height: 150px;
+    
+}
+
+.ultimateSale .card .center p{
+    font-size: 20px;
+    color:#484848;
+    margin:0;
+}
+
+
+.ultimateSale .card #shopNow{
+    display: flex;
+     justify-content: center;
+     align-items: center;
+     border:none;
+    color:#fff;
+     background-color: #000000;
+     border-radius:6px;
+     padding: 10px 46px;
+     text-decoration: none;
+     cursor:pointer;
+box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;     
+
+}
+
+@media screen and (max-width:1500px){
+    .ultimateSale .card .center h2{
+    font-size: 80px;
+ 
+}
+
+.ultimateSale .card .center h1{
+    font-size:160px;
+    
+}
+
+}
+@media screen and (max-width:1370px){
+    .ultimateSale .card .center h2{
+    font-size: 70px;
+ 
+}
+
+.ultimateSale .card .center h1{
+    font-size:140px;
+    
+}
+.ultimateSale{
+    width:90%;
+}
+
+}
+@media screen and (max-width:1350px){
+       .ultimateSale .card .center h2{
+    font-size: 60px;
+   
+}
+
+.ultimateSale .card .center h1{
+    font-size:120px;
+    
+}
+}
+
+@media screen and (max-width:1150px){
+       .ultimateSale .card .center h2{
+    font-size: 50px;
+   
+}
+
+.ultimateSale .card .center h1{
+    font-size:110px;
+    line-height: 120px;
+    
+}
+}
+@media screen and (max-width:950px){
+    .ultimateSale{
+        justify-content: center;
+    }
+   .ultimateSale .card{
+    min-width: 270px;
+    flex-basis: 40%;
+   }
+
+
+       .ultimateSale .card .center h2{
+    font-size: 50px;
+   
+}
+
+.ultimateSale .card .center h1{
+    font-size:110px;
+    line-height: 120px;
+    
+}
+}
+@media screen and (max-width:650px){
+    .ultimateSale{
+        gap:20px;
+    }
+.ultimateSale .card{
+    min-width: 270px;
+    flex-basis: 70%;
+   }
+         .ultimateSale .card .center h2{
+    font-size: 50px;
+   
+}
+ .ultimateSale .card .center{
+    padding:30px 10px;
+ }
+
+.ultimateSale .card .center h1{
+    font-size:100px;
+    line-height: 110px;
+    
+}
+}

@@ -1,0 +1,98 @@
+.Perfection{
+    width:70%;
+    margin:8rem auto 5rem;
+   display:flex;
+   background:url(images/perfectionbg.png) black ;
+   justify-content: center;
+   align-items: center;   
+   padding:4rem 2rem;
+   border-radius: 20px;
+}
+.perfectioncont{
+    display:flex;
+    gap:30px;
+    width:90%;
+}
+.perfectioncont .perfectioncard{
+    display:flex;
+    flex-direction: column;
+    
+    flex-basis:calc(33.33% - 30px);
+    position: relative;
+    overflow: hidden;
+    background-color: #F3F3F3;
+    border-radius: 10px;;
+    padding: 3rem ;
+    padding-top: 5rem;
+    gap:4rem;
+}
+
+
+.perfectioncont .perfectioncard h5{
+    font-size: 22px;
+}
+.perfectioncont .perfectioncard p{
+    font-size: 15px;
+    color: #5C5C5C;
+    width:100%;
+
+}
+.perfectioncont .perfectioncard h2{
+    font-size: 158px;
+    font-family: "Poppins",sans-serif;
+    color: #5C5C5C;
+    font-weight: 500;
+}
+.perfectioncont .perfectioncard .bgimg{
+  position:absolute;
+  right:10px;
+  top:5px;
+}
+.perfectioncont .perfectioncard .cracker{
+    position:absolute;
+    bottom: -70px;
+    right:-50px;
+}
+
+#crack1{
+    bottom: -120px;
+    right:-120px;
+}
+#crack3{
+    bottom: -100px;
+    right:-100px;
+}
+
+@media screen and (max-width:1400px){
+    .Perfection{
+    width:90%;
+}
+.perfectioncont{
+    width:100%;
+}
+}
+@media screen and (max-width:1200px){
+    .perfectioncont .perfectioncard{
+        padding:2rem 1.5rem;
+    }
+}
+
+@media screen and (max-width:950px){
+.perfectioncont{
+    width:100%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.perfectioncont .perfectioncard{
+    min-width: 250px;
+    flex-basis: calc(50% - 30px);
+}
+
+}
+@media screen and (max-width:650px){
+    .perfectioncont .perfectioncard{
+        flex-basis: 90%;
+    min-width: 250px;
+}
+}

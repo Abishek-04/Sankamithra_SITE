@@ -1,0 +1,227 @@
+.Contact{
+    margin:5rem auto;
+    width:80%;
+      box-shadow: 0 10px 30px rgba(255, 0, 0, 0.2); 
+    padding:3rem;
+    border-radius: 16px;
+    position:relative;
+    overflow: hidden;
+}
+
+.Contact .bottom{
+    display:flex;
+    width:100%;
+    justify-content: space-between;
+    padding: 1rem;
+    
+}
+
+.Contactform{
+    padding:6rem 0 0 0;
+    flex-basis: 40%;
+}
+.Contactform form{
+ display: flex;
+ flex-direction: column;
+ gap:40px
+
+}
+ .Contact h3{
+    color:#FF4800;
+    font-size: 32px;;
+}   
+ .Contact p{
+  
+    font-size:14px;;
+}
+.Contactform form input{
+
+    border: none;
+    background-color: #F5F5FF;
+    padding:1.5rem;
+    width:100%;
+    
+}
+.Contactform form textarea{
+      border-radius: 10px;
+    border: none;
+    background-color: #F5F5FF;
+    height: 150px;
+    padding: 1rem;
+}
+.Contactform form input::placeholder{
+    font-size: 18px;
+}
+.Contactform form textarea::placeholder{
+    font-size:18px;
+}
+.Contactform form input:focus{
+    outline:none;
+}
+.Contactform form textarea:focus{
+    outline:none;
+}
+#submit{
+    background-color: #FF0F24;
+    color: #fff;
+}
+.AddressCon{
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+   
+}
+
+.AddressCon .imgwrapper{
+    width:100%;
+    height:auto;
+    display:flex;
+    justify-content: center;
+    /* height:50%; */
+;
+}
+
+.AddressCon .Socialmedia{
+    display:flex;
+    flex-direction: column;
+    padding:1rem;
+    background-color: #FF0F24;
+    border-radius: 0 10px  50px 0;
+    position:absolute;
+    bottom:50px;
+    gap:30px;
+    right:-53px;
+    padding:1rem;
+}
+.AddressCon .Socialmedia img{
+    width:20px;
+    height:20px;
+}
+.Address{
+    display: flex;
+    gap:10px;
+}
+
+.address{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+.addresscard h5{
+    font-weight: 600;
+    margin:0;
+}
+.addresscard {
+   width:80%;
+   display:flex;
+   flex-direction: column;
+   gap:10px;
+   box-shadow: 0 2px 2px rgba(255, 0, 0, 0.2);
+   border-radius:10px ;
+   padding:1rem;
+}
+.addresscard p{
+    display:flex;
+    flex-direction: column;
+       margin:0;
+}
+
+.Address .addresscard  .phonenumber{
+  
+}
+.Address .addresscard  .phonenumber a{
+    text-decoration: none;
+      color:#FF0F24;
+}
+
+@media screen and (max-width:1350px){
+.Contact{
+    width:90%;
+}
+}
+@media screen and (max-width:1070px){
+    .Contact{
+        border-radius: 16px 16px 0 16px;
+    }
+    .AddressCon .Socialmedia{
+       
+        bottom:-60px;
+        right:0px;
+        border-radius: 0 0 40px 10px ;
+        flex-direction: row;
+    }
+}
+@media screen and (max-width:950px){
+    
+.Contact .bottom{
+    flex-wrap: wrap;
+    justify-content: center;
+    gap:50px;
+}
+.Contactform form{
+    min-width: 400px;
+}
+.Contactform{
+    flex-basis: 90%;
+    padding:1rem 0;
+}
+.Contactform form input{
+    padding:1rem;
+}
+.AddressCon{
+     flex-basis: 90%;
+}
+.Address{
+    gap:30px;
+}
+.addresscard {
+   width:100%;
+}
+.AddressCon .imgwrapper img{
+    
+ width:100%;
+
+}
+#submit{
+    padding:10px;
+}
+ .Contact h3{
+
+    font-size: 28px;;
+}
+}
+
+@media screen and (max-width:650px){
+    .Contact{
+        padding:10px
+    }
+   .Contact .bottom{
+    padding:0;
+   }
+   .Address{
+    gap:10px;
+}
+
+    .Contactform form{
+    min-width: 300px;
+}
+ .Contact h3{
+
+    font-size: 24px;;
+}
+}
+@media screen and (max-width:400px){
+    .addresscard {
+   width:100%;
+   padding: 10px;
+}
+.Contact h3{
+
+    font-size: 20px;;
+}
+.Contact p{
+
+    font-size: 12px;;
+}
+}

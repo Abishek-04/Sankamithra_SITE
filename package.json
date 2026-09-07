@@ -1,0 +1,27 @@
+{
+  "name": "sankamithra-fireworks",
+  "version": "2.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "npx serve@latest out -l 3000",
+    "lint": "next lint",
+    "catalogue": "python3 tools/build-catalogue.py",
+    "blur": "node tools/gen-blur.mjs",
+    "analyze": "ANALYZE=1 next build",
+    "verify": "node tools/verify.mjs"
+  },
+  "dependencies": {
+    "next": "16.3.4",
+    "react": "19.2.0",
+    "react-dom": "19.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "22.10.2",
+    "@types/react": "19.0.2",
+    "@types/react-dom": "19.0.2",
+    "puppeteer-core": "^23.11.1",
+    "typescript": "5.7.2"
+  }
+}

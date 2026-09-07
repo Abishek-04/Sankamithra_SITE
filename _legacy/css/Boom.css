@@ -1,0 +1,96 @@
+.Boom{
+    width:70%;
+    margin:5rem auto;
+    justify-content: center;
+    align-items: center;
+    display:flex;
+    flex-direction: column;
+    gap:30px;
+}
+
+.boomtext{
+    width:60%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+.boomtext h1{
+  font-size: 52px;
+  font-weight: 500;
+  line-height: 65px;
+  color:#090914;
+}
+.boomtext p{
+    color:#52525B;
+}
+.boomtext p span{
+    text-decoration: underline;
+}
+#magic{
+    color: #606060;
+}
+
+.boomcardcont{
+    display:flex;
+    gap:50px;
+    
+}
+
+.boomcard{
+    display:flex;
+    flex-direction: column;
+    flex-basis: calc(33.33% - 50px);
+    border-radius: 20px;
+    background-color: #F0f7FF;
+    padding:1.5rem; 
+    gap:30px;
+box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+
+}
+.boomcard .top{
+   width:90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.boomcard .bottom{
+    width:100%;
+    border-radius: 10px;    
+}
+.boomcard .bottom img{
+    width:100%;
+    height:auto;
+}
+.boomcard .top p span{
+    background-color: #CCE6FF;
+}
+
+
+
+@media screen and (max-width:1400px){
+     .boomcardcont{
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    .Boom{
+        width:95%;
+    }
+   
+    
+}
+@media screen and (max-width:950px){
+       .boomcard{
+        flex-basis: 80%;
+        
+       }
+       .boomtext h1{
+  font-size:40px;
+       }
+}
+@media screen and (max-width:500px){
+ .boomtext h1{
+  font-size:30px;
+       }
+}

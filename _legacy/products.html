@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProductDetails</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/productsdetail.css">
+     <link rel="stylesheet" href="css/Catelogue.css" />
+     <link rel="stylesheet" href="css/footer.css" />
+      <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+
+</head>
+<body>
+     <nav>
+      <img src="images/LogoFrame.png" alt="" />
+      <div class="nav-links-wrapper" id="navLinksWrapper">
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#spark">Our Spark</a></li>
+          <li><a href="index.html#stocked">Manufacturing</a></li>
+          <li><a href="index.html#magic">Magic We Made</a></li>
+          <li><a href="index.html#crackers">Crackers</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li>
+            <a href="https://thunder.sankamithra.com/" id="Shopnowlink"
+              >Shop now</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div class="hamburger">
+        <i class="fa-solid fa-bars" onclick="showMenu()" id="humburgerBtn"></i>
+      </div>
+    </nav>
+
+    <div class="Products-Con" id="Products-Con">
+     
+          
+        </button>
+    </div>
+
+
+    
+    <div class="Catelogue" id="crackers">
+      <div class="Cateloguetext">
+        <h1>
+          Not a Catalogue... A Celebration You Can <span>Scroll</span> Through!.
+        </h1>
+        <p>Explore the thrill, frame by frame.</p>
+      </div>
+      <div class="category-bar">
+        <button class="scroll-btn" id="scrollLeft">←</button>
+        <div class="categories"></div>
+        <button class="scroll-btn" id="scrollRight">→</button>
+      </div>
+
+      <div id="products" class="products"></div>
+    </div>
+      <div class="footer">
+      <div class="left">
+        <h2>
+          <span><img src="images/star.png" alt="" />Any questions?</span> Just
+          leave your phone number and we will contact you shortly
+        </h2>
+        <form action="">
+          <span
+            ><i class="fa-solid fa-plus">91</i
+            ><input
+              type="tel"
+              pattern="\d{10}"
+              maxlength="10"
+              oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0,10)"
+              required />
+            <img src="images/send.png" alt=""
+          /></span>
+        </form>
+        <div class="frame">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1340.1052666001385!2d77.87118833935341!3d9.298856736284566!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b06b55da9401d09%3A0xb66acba031fbce0d!2sSankamithra%20Fireworks!5e1!3m2!1sen!2sin!4v1723530302527!5m2!1sen!2sin"
+            width="100%"
+            height="100%"
+            allowfullscreen="true"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+      <div class="right">
+        <div class="head">
+          <div class="quicklinks">
+            <p>QUICK LINKS</p>
+            <div>
+              <a href="#stocked">Manufaturing</a>
+              <a href="#magic">Magic we create</a>
+              <a href="#crackers">Products</a>
+              <a href="#contact">Contacts</a>
+              <a href="https://thunder.sankamithra.com/">Shop</a>
+            </div>
+          </div>
+          <div class="contactus">
+            <p>CONTACT US</p>
+
+            <a href="tel:+919962066648">+91 99620 66648</a>
+            <a href="tel:+91848929290">+91 848929290</a>
+          </div>
+        </div>
+        <div class="foot">
+          <div class="location">
+            <p class="p1">LOCATION</p>
+
+            <p class="p2">9/241, Kanmaisurangudi Village,Sattur - 626203</p>
+          </div>
+
+          <div class="Email">
+            <p class="p1">EMAIL</p>
+
+            <a href="">sankamithrafireworks@gmail.com</a>
+          </div>
+          <span id="copyright">© 2025— Copyright</span>
+        </div>
+        <div class="designed">
+          Designed by <img src="images/Incrix-Logo 1.png" alt="" />
+        </div>
+      </div>
+    </div>
+<script src="script/script.js"></script>
+<script src="script/renderproduct.js"></script>
+</body>
+</html>

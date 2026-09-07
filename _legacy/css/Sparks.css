@@ -1,0 +1,115 @@
+.spark{
+  width:80%;
+  margin:auto;
+  display:flex;
+ justify-content: space-evenly;
+ margin-top: 40px;
+
+}
+.sparkimg{
+    flex-basis: 40%;
+}
+.sparkimg img{
+    width:100%;
+    height:auto;
+}
+
+.spark .textContent{
+    flex-basis: 40%;
+    display:flex;
+    flex-direction: column;
+    gap:30px;
+}
+
+.spark .textContent h1{
+    font-size: 52px;
+
+}
+.spark .textContent h1 span{
+    color:#606060;
+}
+.spark .textContent .p1{
+    font-size: 19px;
+    color:#64748B;
+}
+.spark .textContent .p2{
+    color:#606060;
+}
+
+#parahighlight{
+    color:#FF0F24;
+}
+
+.spark .textContent a{
+    text-decoration: none;
+    color:#2563EB;
+    font-size: 16px;
+    display:flex;
+    align-items: center;
+    
+}
+
+@media screen and (max-width:1650px){
+    .spark{
+        flex-wrap: wrap;
+        width:90%;
+        justify-content:center;
+        gap:70px;
+    }
+    .spark .textContent{
+        gap:20px;
+    }
+}
+@media screen and (max-width:1350px){
+    .spark{
+        width:100%;
+    }
+    .spark .textContent h1{
+    font-size: 42px;
+
+}
+}
+@media screen and (max-width:1350px){
+       .spark .textContent h1{
+    font-size: 36px;
+
+}
+ .spark{
+        width:100%;
+     
+    }
+     .spark .textContent{
+        gap:10px;
+    }
+}
+@media screen and (max-width:950px){
+    .sparkimg{
+        min-width:  440px;
+    }
+    .spark .textContent{
+        flex-basis: 60%;
+    }
+    .spark {
+        gap:30px;
+    }
+
+}
+@media screen and (max-width:650px){
+ 
+     .spark .textContent{
+        flex-basis: 70%;
+    }
+       .spark .textContent h1{
+    font-size: 26px;
+
+}
+}
+@media screen and (max-width:500px){
+       .sparkimg{
+        flex-basis: 85%;
+        min-width: 300px;
+    }
+     .spark .textContent{
+        flex-basis: 85%;
+    }
+}

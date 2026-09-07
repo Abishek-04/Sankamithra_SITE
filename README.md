@@ -1,0 +1,142 @@
+# Sankamithra Fireworks
+
+Next.js 16 (App Router, React 19, TypeScript) exported as **fully static HTML**
+— 97 pre-rendered pages, no server, deployable to the same static host the old
+site used.
+
+```bash
+npm install
+npm run dev            # http://localhost:3000
+npm run build          # → ./out  (static export)
+npm start              # serve ./out locally
+npm run catalogue      # regenerate data/products.json from the price list
+```
+
+## Routes
+
+| Route | Rendering | What it is |
+|---|---|---|
+| `/` | static | Home — hero, story, capabilities, manufacturing, catalogue teaser, reel, testimonials, contact |
+| `/products` | static | The 2026 price list — search, category facets, rate bands, sort, progressive load |
+| `/products/[sno]` | **SSG × 91** | One listing in full — gallery, every price-list column, printed terms, related items |
+| `/sitemap.xml`, `/robots.txt` | static | generated from the product data |
+
+Product URLs moved from `product.html?sno=S101` to `/products/S101`.
+
+## Structure
+
+```
+app/          routes, metadata, sitemap, robots
+components/   UI — server by default, "use client" only where noted below
+lib/
+  products.ts   build-time data access (server-only, reads the JSON once)
+  card.ts       the slim shape a card renders — keeps the hydration payload small
+  format.ts     money / per-unit / WhatsApp link helpers
+  site.ts       constants (Cloudinary cloud name, phones, terms)
+styles/       base · components · home · catalogue  (the design system, unchanged)
+data/         products.json — the 2026 price list
+tools/        build-catalogue.py — transcribes the printed sheet
+public/       logo lockups, _headers, .htaccess
+```
+
+### Client components
+
+Everything else is a server component and ships zero JS.
+
+`Nav` · `ThemeToggle` · `MotionRuntime` · `Fabs` · `FireworksCanvas` ·
+`CategoryTabs` · `CatalogueClient` · `ProductGallery` · `Testimonials` ·
+`VideoReel` · `EnquiryForm`
+
+## Performance notes
+
+Decisions here that are load-bearing — please don't undo them casually:
+
+- **`CloudImage`, not `next/image`.** Cloudinary already does format
+  negotiation, quality and resizing; `next/image` ships a client runtime to do
+  the same job. `CloudImage` emits a plain `<img>` with a Cloudinary `srcset`
+  and costs no JS. `LocalImage` covers the two logo lockups.
+- **All photography lives on Cloudinary.** The site used to serve a 2.5 MB PNG
+  on the home page. `public/` is now 56 KB.
+- **CSS stays external** (`inlineCss` is off). One cached file beats inlining
+  ~70 KB into each of 97 documents.
+- **Cards receive `CardProduct`, not `Product`.** Client components serialize
+  their props into the HTML; shipping fields a card never reads would repeat
+  them 91 times. This alone cut the catalogue document by half.
+- **Only the active category panel renders.** Pre-rendering all eight and
+  hiding seven put 64 cards into both the HTML and the hydration payload.
+- **`next/font`**, self-hosted and preloaded — no third-party connection, no
+  render-blocking stylesheet, no layout shift.
+
+### Measured, gzipped, cold cache
+
+| | HTML | CSS | JS | Fonts | Total |
+|---|---|---|---|---|---|
+| `/` | 24 KB | 13 KB | 188 KB | 69 KB | **293 KB** |
+| `/products` | 19 KB | 16 KB | 185 KB | 69 KB | **288 KB** |
+| `/products/S101` | 11 KB | 16 KB | 182 KB | 69 KB | **277 KB** |
+
+On a repeat visit only the HTML is re-fetched (11–24 KB); everything else is
+content-hashed and immutable.
+
+**181 KB of that JS is the Next 16 + React 19 floor** — the 404 page, which
+contains almost nothing, ships the same. Application code is ~7 KB on top. If
+that floor ever becomes the bottleneck, the previous zero-framework build is
+preserved under `_static/` and shipped ~12 KB of JS.
+
+## What is not in this repo
+
+Source photography (`database/`, `images/`) is not tracked — roughly 74 MB of
+originals that never change and would only slow clones. Everything the site
+serves is on Cloudinary; `public/` holds just the two logo lockups.
+
+`tools/build-catalogue.py` does not read those folders — it holds the price
+list and the Cloudinary public IDs directly, so `npm run catalogue` works from
+a fresh clone.
+
+## Deployment
+
+`npm run build` writes `./out`. Upload it as-is.
+
+`public/_headers` covers Netlify and Cloudflare Pages; `public/.htaccess`
+covers Apache, including the directory→`index.html` rewrite that a
+`trailingSlash` export needs. On nginx use `try_files $uri $uri/index.html =404`.
+
+## Theming
+
+Two first-class themes, switched by the control in the nav and stored in
+`localStorage` (`sanka-theme`); with nothing stored the site follows the OS. An
+inline script in `app/layout.tsx` stamps `data-theme` before first paint.
+
+Colour is semantic tokens declared across four scopes in `styles/base.css`:
+`:root` (dark), `[data-theme="light"]`, and `.tone-night` / `.tone-day` which
+pin a palette regardless of theme. **No component has a per-theme override** —
+a band that should read as the opposite of the page re-declares the tokens and
+everything inside inverts with it.
+
+Never use `--gold` for text on a light surface: it measures 1.5:1 on cream. Use
+`--accent`, which resolves to gold on dark and a burnt amber (5.05:1) on light.
+
+## Data
+
+`data/products.json` is generated by `tools/build-catalogue.py`, which holds the
+2026 Sivakasi price list transcribed row for row — 91 items across 11
+categories, effective 1 May 2026. Each record carries every printed column
+(`sno`, `contents`, `price`, `per`, `case`) plus Cloudinary public IDs.
+
+Rates are quoted per that row's own unit — a box, a piece, a bag, or a count of
+packets — so they are **not comparable across categories**. Where a row is
+quoted per many packets, the UI derives and shows the per-packet rate.
+
+To amend a rate or add an item, edit the `ROWS` table in the script and re-run
+`npm run catalogue`. It prints a summary and lists anything still without a
+photograph — 16 of 91 as of this build.
+
+## Images — Cloudinary
+
+Cloud name **`mvhayrhr`**. Only the cloud name is public; the API key and
+secret must never appear in this repo or in the browser. Anything that signs a
+request belongs on a server or in a local script reading from the environment.
+
+Products without a photo render a "photo coming soon" tile rather than a broken
+image. Upload to `sankamithra/<category>/<slug>` and add the public ID to the
+matching `ROWS` entry.

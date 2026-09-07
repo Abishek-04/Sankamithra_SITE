@@ -1,0 +1,146 @@
+.Stocked{
+    display:flex;
+    flex-direction: column;
+    width:80%;
+    margin:7rem auto;
+    gap:20px;
+    align-items: center;
+    justify-content: center;
+    
+}
+.Stocked .Text{
+     display:flex;
+    flex-direction: column;
+    gap:10px;
+    width:80%;
+    text-align: center;
+}
+.Stocked .Text h1{
+    font-size: 48px;
+    font-weight: 600;
+}
+.Stocked .Text p{
+    font-weight: 16px;
+}
+.Stocked .container{
+    display:flex;
+    justify-content: space-between;
+    width:100%;
+    gap:5rem;
+    /*  */
+
+}
+
+.Stocked .container .stockcardcont{
+    display:flex;
+    flex-direction: column;
+    gap:20px;
+    flex-basis: 50%;
+    padding:2rem;
+    
+}
+
+.Stocked .container .stockcardcont .stockcard{
+     display:flex;
+    flex-direction: column;
+    gap:10px;
+    padding: 26px 20px 26px 30px ;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border:none;
+    border-radius:10px;
+    flex:1
+    
+}
+.Stocked .container .stockcardcont .stockcard .head{
+    display:flex;
+    gap:15px;
+}
+.Stocked .container .stockcardcont .stockcard .head  h4{
+    font-size: 20px;
+
+}
+.Stocked .container .stockcardcont .stockcard .head img{
+    width:32px;
+    height:32px;
+}
+
+
+.Stocked .container .imgwrap{
+    flex-basis: 50%;
+   display:flex;
+   align-items: center;
+   justify-content: center;
+}
+.Stocked .container .imgwrap img{
+    width:100%;
+    height:100%;
+}
+
+.img_card{
+   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+   height:80%;
+   width:10 0%;
+}
+
+.Stocked .container .stockcardcont .stockcard:hover{
+  background-color: #F7F7F7;
+  border-left:3px solid #FF0F24;
+  border-radius: 0px 10px 10px 0px;
+}
+
+@media screen and (max-width:1600px){
+    .Stocked{
+        width:95%;
+    }
+    .Stocked .container{
+        gap:3rem;
+       
+    }
+}
+@media screen and (max-width:1200px){
+      .Stocked .container{
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .Stocked .Text h1{
+    font-size: 38px;
+    font-weight: 600;
+}
+
+    .Stocked .container .stockcardcont{
+        min-width: 530px;
+        flex-basis: 80%;
+    }
+    .Stocked .container .imgwrap{
+        min-width: 550px;
+         flex-basis: 80%;
+    }
+
+}
+@media screen and (max-width:1000px){
+    .Stocked .container .stockcardcont{
+        min-width: 230px;
+        flex-basis: 100%;
+        padding:20px;
+        flex-basis: 95%;
+    }
+    .Stocked .container .imgwrap{
+        min-width: 250px;
+        flex-basis: 95%;
+    }
+     
+         .Stocked .Text h1{
+    font-size: 34px;
+    font-weight: 600;
+}
+}
+@media screen and (max-width:600px){
+            .Stocked .Text h1{
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.Stocked .container .stockcardcont .stockcard{
+    padding:16px 10px 16px 20px;
+}
+}

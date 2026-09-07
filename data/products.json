@@ -1,0 +1,1402 @@
+[
+ {
+  "sno": "S101",
+  "slug": "lucky-money-3-pcs",
+  "name": "Lucky Money (3 Pcs)",
+  "category": "Sankamithra Specials",
+  "categoryOrder": 1,
+  "contents": "3 Pcs",
+  "price": 140,
+  "per": "1 Box",
+  "case": "60 Boxes",
+  "unitNote": "3 Pcs per box · 60 Boxes per case",
+  "images": [
+   "sankamithra/sankamithraspecials/luckymoney/1",
+   "sankamithra/sankamithraspecials/luckymoney/2",
+   "sankamithra/sankamithraspecials/luckymoney/3"
+  ]
+ },
+ {
+  "sno": "S102",
+  "slug": "sound-party-3-pcs",
+  "name": "Sound Party (3 Pcs)",
+  "category": "Sankamithra Specials",
+  "categoryOrder": 1,
+  "contents": "3 Pcs",
+  "price": 130,
+  "per": "1 Box",
+  "case": "60 Boxes",
+  "unitNote": "3 Pcs per box · 60 Boxes per case",
+  "images": [
+   "sankamithra/sankamithraspecials/soundparty/1",
+   "sankamithra/sankamithraspecials/soundparty/2",
+   "sankamithra/sankamithraspecials/soundparty/3"
+  ]
+ },
+ {
+  "sno": "S103",
+  "slug": "oola-vedi-25-pcs",
+  "name": "Oola Vedi (25 Pcs)",
+  "category": "Sankamithra Specials",
+  "categoryOrder": 1,
+  "contents": "25 Pcs",
+  "price": 135,
+  "per": "1 Box",
+  "case": "60 Boxes",
+  "unitNote": "25 Pcs per box · 60 Boxes per case",
+  "images": [
+   "sankamithra/sankamithraspecials/oolavedi/1",
+   "sankamithra/sankamithraspecials/oolavedi/2",
+   "sankamithra/sankamithraspecials/oolavedi/3"
+  ]
+ },
+ {
+  "sno": "S104",
+  "slug": "popcorn-pencil-5-pcs",
+  "name": "Popcorn Pencil (5 Pcs)",
+  "category": "Sankamithra Specials",
+  "categoryOrder": 1,
+  "contents": "5 Pcs",
+  "price": 170,
+  "per": "1 Box",
+  "case": "50 Boxes",
+  "unitNote": "5 Pcs per box · 50 Boxes per case",
+  "images": [
+   "sankamithra/sankamithraspecials/popcorn/1",
+   "sankamithra/sankamithraspecials/popcorn/2",
+   "sankamithra/sankamithraspecials/popcorn/3",
+   "sankamithra/sankamithraspecials/popcorn/4"
+  ]
+ },
+ {
+  "sno": "S105",
+  "slug": "water-falls-pencil-5-pcs",
+  "name": "Water Falls Pencil (5 Pcs)",
+  "category": "Sankamithra Specials",
+  "categoryOrder": 1,
+  "contents": "5 Pcs",
+  "price": 170,
+  "per": "1 Box",
+  "case": "50 Boxes",
+  "unitNote": "5 Pcs per box · 50 Boxes per case",
+  "images": [
+   "sankamithra/sankamithraspecials/waterfalls/1",
+   "sankamithra/sankamithraspecials/waterfalls/2",
+   "sankamithra/sankamithraspecials/waterfalls/3",
+   "sankamithra/sankamithraspecials/waterfalls/4"
+  ]
+ },
+ {
+  "sno": "S106",
+  "slug": "hunter-007-5-pcs",
+  "name": "Hunter 007 (5 Pcs)",
+  "category": "Sankamithra Specials",
+  "categoryOrder": 1,
+  "contents": "5 Pcs",
+  "price": 170,
+  "per": "1 Box",
+  "case": "50 Boxes",
+  "unitNote": "5 Pcs per box · 50 Boxes per case",
+  "images": [
+   "sankamithra/sankamithraspecials/hunter/1",
+   "sankamithra/sankamithraspecials/hunter/2",
+   "sankamithra/sankamithraspecials/hunter/3"
+  ]
+ },
+ {
+  "sno": "S107",
+  "slug": "kalashinkov-2-pcs",
+  "name": "Kalashinkov (2 Pcs)",
+  "category": "Sankamithra Specials",
+  "categoryOrder": 1,
+  "contents": "2 Pcs",
+  "price": 170,
+  "per": "1 Box",
+  "case": "50 Boxes",
+  "unitNote": "2 Pcs per box · 50 Boxes per case",
+  "images": [
+   "sankamithra/sankamithraspecials/kalashinkov-/1",
+   "sankamithra/sankamithraspecials/kalashinkov-/2",
+   "sankamithra/sankamithraspecials/kalashinkov-/3"
+  ]
+ },
+ {
+  "sno": "S108",
+  "slug": "red-green-crackling-golden-peacock",
+  "name": "Red & Green, Crackling, Golden Peacock",
+  "category": "Sankamithra Specials",
+  "categoryOrder": 1,
+  "contents": "1 Pce",
+  "price": 150,
+  "per": "1 Box",
+  "case": "60 Boxes",
+  "unitNote": "1 Pce per box · 60 Boxes per case",
+  "images": [
+   "sankamithra/sankamithraspecials/peacockgolden-red-green/1",
+   "sankamithra/sankamithraspecials/peacockgolden-red-green/2",
+   "sankamithra/sankamithraspecials/peacockgolden-red-green/3"
+  ]
+ },
+ {
+  "sno": "S109",
+  "slug": "kids-star-wars-2-pcs",
+  "name": "Kids Star Wars (2 Pcs)",
+  "category": "Sankamithra Specials",
+  "categoryOrder": 1,
+  "contents": "2 Pcs",
+  "price": 150,
+  "per": "1 Box",
+  "case": "60 Boxes",
+  "unitNote": "2 Pcs per box · 60 Boxes per case",
+  "images": [
+   "sankamithra/sankamithraspecials/starwars/1",
+   "sankamithra/sankamithraspecials/starwars/2",
+   "sankamithra/sankamithraspecials/starwars/3",
+   "sankamithra/sankamithraspecials/starwars/4"
+  ]
+ },
+ {
+  "sno": "S110",
+  "slug": "6-aqua-queen",
+  "name": "6\" Aqua Queen",
+  "category": "Sankamithra Specials",
+  "categoryOrder": 1,
+  "contents": "1 Pce",
+  "price": 170,
+  "per": "1 Pce",
+  "case": "60 Pcs",
+  "unitNote": "1 Pce per pce · 60 Pcs per case",
+  "images": [
+   "sankamithra/sankamithraspecials/aquaqueen/1"
+  ]
+ },
+ {
+  "sno": "S111",
+  "slug": "6-monster-t-n-67",
+  "name": "6\" Monster T N 67",
+  "category": "Sankamithra Specials",
+  "categoryOrder": 1,
+  "contents": "1 Pce",
+  "price": 170,
+  "per": "1 Pce",
+  "case": "60 Pcs",
+  "unitNote": "1 Pce per pce · 60 Pcs per case",
+  "images": [
+   "sankamithra/sankamithraspecials/monster/1"
+  ]
+ },
+ {
+  "sno": "S112",
+  "slug": "6-rolex-100-rx100",
+  "name": "6\" Rolex 100 (Rx100)",
+  "category": "Sankamithra Specials",
+  "categoryOrder": 1,
+  "contents": "1 Pce",
+  "price": 170,
+  "per": "1 Pce",
+  "case": "60 Pcs",
+  "unitNote": "1 Pce per pce · 60 Pcs per case",
+  "images": [
+   "sankamithra/sankamithraspecials/rolex/1"
+  ]
+ },
+ {
+  "sno": "S113",
+  "slug": "mowgli-5-pcs",
+  "name": "Mowgli (5 Pcs)",
+  "category": "Sankamithra Specials",
+  "categoryOrder": 1,
+  "contents": "5 Pcs",
+  "price": 80,
+  "per": "1 Box",
+  "case": "100 Boxes",
+  "unitNote": "5 Pcs per box · 100 Boxes per case",
+  "images": []
+ },
+ {
+  "sno": "S114",
+  "slug": "mankatha-5-pcs",
+  "name": "Mankatha (5 Pcs)",
+  "category": "Sankamithra Specials",
+  "categoryOrder": 1,
+  "contents": "5 Pcs",
+  "price": 170,
+  "per": "1 Box",
+  "case": "50 Boxes",
+  "unitNote": "5 Pcs per box · 50 Boxes per case",
+  "images": [
+   "sankamithra/sankamithraspecials/mankaths/1"
+  ]
+ },
+ {
+  "sno": "S115",
+  "slug": "super-singer-5-pcs",
+  "name": "Super Singer (5 Pcs)",
+  "category": "Sankamithra Specials",
+  "categoryOrder": 1,
+  "contents": "5 Pcs",
+  "price": 115,
+  "per": "1 Box",
+  "case": "100 Boxes",
+  "unitNote": "5 Pcs per box · 100 Boxes per case",
+  "images": [
+   "sankamithra/sankamithraspecials/supersinger/1"
+  ]
+ },
+ {
+  "sno": "S116",
+  "slug": "badaa-peacock",
+  "name": "Badaa Peacock",
+  "category": "Sankamithra Specials",
+  "categoryOrder": 1,
+  "contents": "1 Pce",
+  "price": 255,
+  "per": "1 Box",
+  "case": "30 Boxes",
+  "unitNote": "1 Pce per box · 30 Boxes per case",
+  "images": [
+   "sankamithra/sankamithraspecials/badaapeacock/1"
+  ]
+ },
+ {
+  "sno": "S117",
+  "slug": "100-w-power-3-pcs",
+  "name": "100\" W-Power (3 Pcs)",
+  "category": "Sankamithra Specials",
+  "categoryOrder": 1,
+  "contents": "3 Pcs",
+  "price": 110,
+  "per": "1 Box",
+  "case": "100 Boxes",
+  "unitNote": "3 Pcs per box · 100 Boxes per case",
+  "images": [
+   "sankamithra/sankamithraspecials/100wpower/1"
+  ]
+ },
+ {
+  "sno": "S118",
+  "slug": "the-leader-3-pcs",
+  "name": "The Leader (3 Pcs)",
+  "category": "Sankamithra Specials",
+  "categoryOrder": 1,
+  "contents": "3 Pcs",
+  "price": 160,
+  "per": "1 Box",
+  "case": "80 Boxes",
+  "unitNote": "3 Pcs per box · 80 Boxes per case",
+  "images": [
+   "sankamithra/sankamithraspecials/theleader/1"
+  ]
+ },
+ {
+  "sno": "S119",
+  "slug": "jigarthanda-3-pcs",
+  "name": "Jigarthanda (3 Pcs)",
+  "category": "Sankamithra Specials",
+  "categoryOrder": 1,
+  "contents": "3 Pcs",
+  "price": 150,
+  "per": "1 Box",
+  "case": "100 Boxes",
+  "unitNote": "3 Pcs per box · 100 Boxes per case",
+  "images": [
+   "sankamithra/sankamithraspecials/jigarthanda/1",
+   "sankamithra/sankamithraspecials/jigarthanda/2",
+   "sankamithra/sankamithraspecials/jigarthanda/3"
+  ]
+ },
+ {
+  "sno": "S151",
+  "slug": "thunder-coconut-cracklig-3-pcs",
+  "name": "Thunder Coconut Cracklig (3 Pcs)",
+  "category": "Sankamithra Magics",
+  "categoryOrder": 2,
+  "contents": "3 Pcs",
+  "price": 240,
+  "per": "1 Box",
+  "case": "60 Boxes",
+  "unitNote": "3 Pcs per box · 60 Boxes per case",
+  "images": [
+   "sankamithra/designs/thundercoconut"
+  ]
+ },
+ {
+  "sno": "S152",
+  "slug": "fire-feather-5-pcs",
+  "name": "Fire & Feather (5 Pcs)",
+  "category": "Sankamithra Magics",
+  "categoryOrder": 2,
+  "contents": "5 Pcs",
+  "price": 85,
+  "per": "1 Box",
+  "case": "120 Boxes",
+  "unitNote": "5 Pcs per box · 120 Boxes per case",
+  "images": [
+   "sankamithra/magics/fireandfeather"
+  ]
+ },
+ {
+  "sno": "S153",
+  "slug": "nebula-5-pcs",
+  "name": "Nebula (5 Pcs)",
+  "category": "Sankamithra Magics",
+  "categoryOrder": 2,
+  "contents": "5 Pcs",
+  "price": 80,
+  "per": "1 Box",
+  "case": "120 Boxes",
+  "unitNote": "5 Pcs per box · 120 Boxes per case",
+  "images": [
+   "sankamithra/magics/nebula"
+  ]
+ },
+ {
+  "sno": "S154",
+  "slug": "golden-sparrow-5-pcs",
+  "name": "Golden Sparrow (5 Pcs)",
+  "category": "Sankamithra Magics",
+  "categoryOrder": 2,
+  "contents": "5 Pcs",
+  "price": 80,
+  "per": "1 Box",
+  "case": "120 Boxes",
+  "unitNote": "5 Pcs per box · 120 Boxes per case",
+  "images": [
+   "sankamithra/magics/goldensparrow"
+  ]
+ },
+ {
+  "sno": "S155",
+  "slug": "dragon-slay-5-pcs-multicolor",
+  "name": "Dragon Slay (5 Pcs) (Multicolor)",
+  "category": "Sankamithra Magics",
+  "categoryOrder": 2,
+  "contents": "5 Pcs",
+  "price": 120,
+  "per": "1 Box",
+  "case": "84 Boxes",
+  "unitNote": "5 Pcs per box · 84 Boxes per case",
+  "images": [
+   "sankamithra/magics/dragonslay"
+  ]
+ },
+ {
+  "sno": "S156",
+  "slug": "mclaren-3-pcs",
+  "name": "McLaren (3 Pcs)",
+  "category": "Sankamithra Magics",
+  "categoryOrder": 2,
+  "contents": "3 Pcs",
+  "price": 180,
+  "per": "1 Box",
+  "case": "60 Boxes",
+  "unitNote": "3 Pcs per box · 60 Boxes per case",
+  "images": []
+ },
+ {
+  "sno": "S157",
+  "slug": "formula-1-3-pcs-tin-box-multicolor",
+  "name": "Formula 1 (3 Pcs Tin Box) (Multicolor)",
+  "category": "Sankamithra Magics",
+  "categoryOrder": 2,
+  "contents": "3 Pcs",
+  "price": 190,
+  "per": "1 Box",
+  "case": "60 Boxes",
+  "unitNote": "3 Pcs per box · 60 Boxes per case",
+  "images": []
+ },
+ {
+  "sno": "S158",
+  "slug": "penta-race-5-pcs-multicolor",
+  "name": "Penta Race (5 Pcs) (Multicolor)",
+  "category": "Sankamithra Magics",
+  "categoryOrder": 2,
+  "contents": "5 Pcs",
+  "price": 130,
+  "per": "1 Box",
+  "case": "90 Boxes",
+  "unitNote": "5 Pcs per box · 90 Boxes per case",
+  "images": []
+ },
+ {
+  "sno": "S159",
+  "slug": "rapid-burst-5-pcs-multicolor",
+  "name": "Rapid Burst (5 Pcs) (Multicolor)",
+  "category": "Sankamithra Magics",
+  "categoryOrder": 2,
+  "contents": "5 Pcs",
+  "price": 150,
+  "per": "1 Box",
+  "case": "90 Boxes",
+  "unitNote": "5 Pcs per box · 90 Boxes per case",
+  "images": []
+ },
+ {
+  "sno": "S201",
+  "slug": "2-3-4-kuruvi-crackers",
+  "name": "2 3/4\" Kuruvi Crackers",
+  "category": "One Sound Crackers",
+  "categoryOrder": 3,
+  "contents": "",
+  "price": 7300,
+  "per": "1000 Pkt",
+  "case": "1600 Pkts",
+  "unitNote": "Quoted per 1000 Pkt · 1600 Pkts per case",
+  "images": [
+   "sankamithra/onesound/kuruvi/1"
+  ]
+ },
+ {
+  "sno": "S202",
+  "slug": "3-1-2-flash-crackers",
+  "name": "3 1/2\" Flash Crackers",
+  "category": "One Sound Crackers",
+  "categoryOrder": 3,
+  "contents": "",
+  "price": 7200,
+  "per": "750 Pkt",
+  "case": "750 Pkts",
+  "unitNote": "Quoted per 750 Pkt · 750 Pkts per case",
+  "images": [
+   "sankamithra/onesound/flash/1"
+  ]
+ },
+ {
+  "sno": "S203",
+  "slug": "3-1-2-chhoto-beam-crackers",
+  "name": "3 1/2\" Chhoto Beam Crackers",
+  "category": "One Sound Crackers",
+  "categoryOrder": 3,
+  "contents": "",
+  "price": 7200,
+  "per": "750 Pkt",
+  "case": "750 Pkts",
+  "unitNote": "Quoted per 750 Pkt · 750 Pkts per case",
+  "images": [
+   "sankamithra/onesound/chhotabheem/1"
+  ]
+ },
+ {
+  "sno": "S204",
+  "slug": "3-1-2-lakshmi-crackers",
+  "name": "3 1/2\" Lakshmi Crackers",
+  "category": "One Sound Crackers",
+  "categoryOrder": 3,
+  "contents": "",
+  "price": 7200,
+  "per": "750 Pkt",
+  "case": "750 Pkts",
+  "unitNote": "Quoted per 750 Pkt · 750 Pkts per case",
+  "images": [
+   "sankamithra/onesound/lakshmi/1"
+  ]
+ },
+ {
+  "sno": "S205",
+  "slug": "4-ant-man-crackers",
+  "name": "4\" Ant-Man Crackers",
+  "category": "One Sound Crackers",
+  "categoryOrder": 3,
+  "contents": "",
+  "price": 7200,
+  "per": "500 Pkt",
+  "case": "500 Pkts",
+  "unitNote": "Quoted per 500 Pkt · 500 Pkts per case",
+  "images": [
+   "sankamithra/onesound/antman/1"
+  ]
+ },
+ {
+  "sno": "S206",
+  "slug": "4-dora-crackers",
+  "name": "4\" Dora Crackers",
+  "category": "One Sound Crackers",
+  "categoryOrder": 3,
+  "contents": "",
+  "price": 7200,
+  "per": "500 Pkt",
+  "case": "500 Pkts",
+  "unitNote": "Quoted per 500 Pkt · 500 Pkts per case",
+  "images": [
+   "sankamithra/onesound/dora/1"
+  ]
+ },
+ {
+  "sno": "S207",
+  "slug": "4-zippy-crackers",
+  "name": "4\" Zippy Crackers",
+  "category": "One Sound Crackers",
+  "categoryOrder": 3,
+  "contents": "",
+  "price": 7200,
+  "per": "500 Pkt",
+  "case": "500 Pkts",
+  "unitNote": "Quoted per 500 Pkt · 500 Pkts per case",
+  "images": [
+   "sankamithra/onesound/zippy/1"
+  ]
+ },
+ {
+  "sno": "S208",
+  "slug": "4-dead-pool-deluxe-8-ply",
+  "name": "4\" Dead Pool Deluxe (8 Ply)",
+  "category": "One Sound Crackers",
+  "categoryOrder": 3,
+  "contents": "",
+  "price": 7450,
+  "per": "450 Pkt",
+  "case": "500 Pkts",
+  "unitNote": "Quoted per 450 Pkt · 500 Pkts per case",
+  "images": [
+   "sankamithra/onesound/deadpool/1"
+  ]
+ },
+ {
+  "sno": "S209",
+  "slug": "4-lakshmi-deluxe-8-ply",
+  "name": "4\" Lakshmi Deluxe (8 Ply)",
+  "category": "One Sound Crackers",
+  "categoryOrder": 3,
+  "contents": "",
+  "price": 7450,
+  "per": "450 Pkt",
+  "case": "450 Pkts",
+  "unitNote": "Quoted per 450 Pkt · 450 Pkts per case",
+  "images": [
+   "sankamithra/onesound/lakshmideluxe/1"
+  ]
+ },
+ {
+  "sno": "S210",
+  "slug": "4-little-singam-deluxe-8-ply",
+  "name": "4\" Little Singam Deluxe (8 Ply)",
+  "category": "One Sound Crackers",
+  "categoryOrder": 3,
+  "contents": "",
+  "price": 7450,
+  "per": "450 Pkt",
+  "case": "450 Pkts",
+  "unitNote": "Quoted per 450 Pkt · 450 Pkts per case",
+  "images": [
+   "sankamithra/onesound/littlesingam/1"
+  ]
+ },
+ {
+  "sno": "S211",
+  "slug": "4-gold-ben10-deluxe-10-ply",
+  "name": "4\" Gold Ben10 Deluxe (10 Ply)",
+  "category": "One Sound Crackers",
+  "categoryOrder": 3,
+  "contents": "",
+  "price": 7380,
+  "per": "300 Pkt",
+  "case": "300 Pkts",
+  "unitNote": "Quoted per 300 Pkt · 300 Pkts per case",
+  "images": [
+   "sankamithra/onesound/goldben10/1"
+  ]
+ },
+ {
+  "sno": "S212",
+  "slug": "4-thanos-mega-deluxe-12-ply",
+  "name": "4\" Thanos Mega Deluxe (12 Ply)",
+  "category": "One Sound Crackers",
+  "categoryOrder": 3,
+  "contents": "",
+  "price": 7380,
+  "per": "300 Pkt",
+  "case": "300 Pkts",
+  "unitNote": "Quoted per 300 Pkt · 300 Pkts per case",
+  "images": [
+   "sankamithra/onesound/thanosmegadeluxe/1"
+  ]
+ },
+ {
+  "sno": "S213",
+  "slug": "4-shiva-mega-deluxe-12-ply",
+  "name": "4\" Shiva Mega Deluxe (12 Ply)",
+  "category": "One Sound Crackers",
+  "categoryOrder": 3,
+  "contents": "",
+  "price": 7380,
+  "per": "300 Pkt",
+  "case": "300 Pkts",
+  "unitNote": "Quoted per 300 Pkt · 300 Pkts per case",
+  "images": [
+   "sankamithra/onesound/shivamegadeluxe/1"
+  ]
+ },
+ {
+  "sno": "S214",
+  "slug": "4-lion-mega-deluxe-12-ply",
+  "name": "4\" Lion Mega Deluxe (12 Ply)",
+  "category": "One Sound Crackers",
+  "categoryOrder": 3,
+  "contents": "",
+  "price": 7380,
+  "per": "300 Pkt",
+  "case": "300 Pkts",
+  "unitNote": "Quoted per 300 Pkt · 300 Pkts per case",
+  "images": [
+   "sankamithra/onesound/lionmegadeluxe/1"
+  ]
+ },
+ {
+  "sno": "S301",
+  "slug": "ground-chakkar-big-25-pcs",
+  "name": "Ground Chakkar Big (25 Pcs)",
+  "category": "Ground Chakkars",
+  "categoryOrder": 4,
+  "contents": "25 Pcs",
+  "price": 255,
+  "per": "Unit",
+  "case": "55 Units",
+  "unitNote": "25 Pcs per unit · 55 Units per case",
+  "images": [
+   "sankamithra/groundchakkars/groundchakkarbig25/1",
+   "sankamithra/groundchakkars/groundchakkarbig25/2",
+   "sankamithra/groundchakkars/groundchakkarbig25/3",
+   "sankamithra/groundchakkars/groundchakkarbig25/4"
+  ]
+ },
+ {
+  "sno": "S302",
+  "slug": "ground-chakkar-big-10-pcs",
+  "name": "Ground Chakkar Big (10 Pcs)",
+  "category": "Ground Chakkars",
+  "categoryOrder": 4,
+  "contents": "10 Pcs",
+  "price": 280,
+  "per": "Unit",
+  "case": "45 Units",
+  "unitNote": "10 Pcs per unit · 45 Units per case",
+  "images": [
+   "sankamithra/groundchakkars/groundchakkarbig10/1",
+   "sankamithra/groundchakkars/groundchakkarbig10/2",
+   "sankamithra/groundchakkars/groundchakkarbig10/3",
+   "sankamithra/groundchakkars/groundchakkarbig10/4"
+  ]
+ },
+ {
+  "sno": "S303",
+  "slug": "ground-chakkar-asoka",
+  "name": "Ground Chakkar Asoka",
+  "category": "Ground Chakkars",
+  "categoryOrder": 4,
+  "contents": "10 Pcs",
+  "price": 390,
+  "per": "Unit",
+  "case": "25 Units",
+  "unitNote": "10 Pcs per unit · 25 Units per case",
+  "images": [
+   "sankamithra/groundchakkars/groundchakkarasoka/1",
+   "sankamithra/groundchakkars/groundchakkarasoka/2",
+   "sankamithra/groundchakkars/groundchakkarasoka/3",
+   "sankamithra/groundchakkars/groundchakkarasoka/4"
+  ]
+ },
+ {
+  "sno": "S304",
+  "slug": "ground-chakkar-special",
+  "name": "Ground Chakkar Special",
+  "category": "Ground Chakkars",
+  "categoryOrder": 4,
+  "contents": "10 Pcs",
+  "price": 525,
+  "per": "Unit",
+  "case": "19 Units",
+  "unitNote": "10 Pcs per unit · 19 Units per case",
+  "images": [
+   "sankamithra/groundchakkars/groundchakkarspecial/1",
+   "sankamithra/groundchakkars/groundchakkarspecial/2",
+   "sankamithra/groundchakkars/groundchakkarspecial/3",
+   "sankamithra/groundchakkars/groundchakkarspecial/4"
+  ]
+ },
+ {
+  "sno": "S305",
+  "slug": "ground-chakkar-deluxe",
+  "name": "Ground Chakkar Deluxe",
+  "category": "Ground Chakkars",
+  "categoryOrder": 4,
+  "contents": "10 Pcs",
+  "price": 935,
+  "per": "Unit",
+  "case": "12 Units",
+  "unitNote": "10 Pcs per unit · 12 Units per case",
+  "images": [
+   "sankamithra/groundchakkars/groundchakkardeluxe/1",
+   "sankamithra/groundchakkars/groundchakkardeluxe/2",
+   "sankamithra/groundchakkars/groundchakkardeluxe/3",
+   "sankamithra/groundchakkars/groundchakkardeluxe/4"
+  ]
+ },
+ {
+  "sno": "S306",
+  "slug": "ground-chakkar-orbit-spinner",
+  "name": "Ground Chakkar Orbit Spinner",
+  "category": "Ground Chakkars",
+  "categoryOrder": 4,
+  "contents": "10 Pcs",
+  "price": 1030,
+  "per": "Unit",
+  "case": "12 Units",
+  "unitNote": "10 Pcs per unit · 12 Units per case",
+  "images": [
+   "sankamithra/groundchakkars/groundchakkarorbitspinner/1"
+  ]
+ },
+ {
+  "sno": "S351",
+  "slug": "flower-pots-small",
+  "name": "Flower Pots Small",
+  "category": "Flower Pots",
+  "categoryOrder": 5,
+  "contents": "10 Pcs",
+  "price": 400,
+  "per": "Unit",
+  "case": "36 Units",
+  "unitNote": "10 Pcs per unit · 36 Units per case",
+  "images": [
+   "sankamithra/flowerpots/flowerpotssmall/1",
+   "sankamithra/flowerpots/flowerpotssmall/2",
+   "sankamithra/flowerpots/flowerpotssmall/3",
+   "sankamithra/flowerpots/flowerpotssmall/4"
+  ]
+ },
+ {
+  "sno": "S352",
+  "slug": "flower-pots-big",
+  "name": "Flower Pots Big",
+  "category": "Flower Pots",
+  "categoryOrder": 5,
+  "contents": "10 Pcs",
+  "price": 500,
+  "per": "Unit",
+  "case": "20 Units",
+  "unitNote": "10 Pcs per unit · 20 Units per case",
+  "images": [
+   "sankamithra/flowerpots/flowerpotsbig/1",
+   "sankamithra/flowerpots/flowerpotsbig/2",
+   "sankamithra/flowerpots/flowerpotsbig/3",
+   "sankamithra/flowerpots/flowerpotsbig/4"
+  ]
+ },
+ {
+  "sno": "S353",
+  "slug": "flower-pots-special",
+  "name": "Flower Pots Special",
+  "category": "Flower Pots",
+  "categoryOrder": 5,
+  "contents": "10 Pcs",
+  "price": 650,
+  "per": "Unit",
+  "case": "18 Units",
+  "unitNote": "10 Pcs per unit · 18 Units per case",
+  "images": [
+   "sankamithra/flowerpots/flowerpotsspecial/1",
+   "sankamithra/flowerpots/flowerpotsspecial/2",
+   "sankamithra/flowerpots/flowerpotsspecial/3",
+   "sankamithra/flowerpots/flowerpotsspecial/4"
+  ]
+ },
+ {
+  "sno": "S354",
+  "slug": "flower-pots-asoka",
+  "name": "Flower Pots Asoka",
+  "category": "Flower Pots",
+  "categoryOrder": 5,
+  "contents": "10 Pcs",
+  "price": 880,
+  "per": "Unit",
+  "case": "10 Units",
+  "unitNote": "10 Pcs per unit · 10 Units per case",
+  "images": [
+   "sankamithra/flowerpots/flowerpotsasoka/1",
+   "sankamithra/flowerpots/flowerpotsasoka/2",
+   "sankamithra/flowerpots/flowerpotsasoka/3",
+   "sankamithra/flowerpots/flowerpotsasoka/4"
+  ]
+ },
+ {
+  "sno": "S355",
+  "slug": "flower-pots-colour-koti",
+  "name": "Flower Pots Colour Koti",
+  "category": "Flower Pots",
+  "categoryOrder": 5,
+  "contents": "10 Pcs",
+  "price": 1480,
+  "per": "Unit",
+  "case": "6 Units",
+  "unitNote": "10 Pcs per unit · 6 Units per case",
+  "images": [
+   "sankamithra/flowerpots/flowerpotscolourkoti/1",
+   "sankamithra/flowerpots/flowerpotscolourkoti/2",
+   "sankamithra/flowerpots/flowerpotscolourkoti/3",
+   "sankamithra/flowerpots/flowerpotscolourkoti/4"
+  ]
+ },
+ {
+  "sno": "S356",
+  "slug": "flower-pots-deluxe",
+  "name": "Flower Pots Deluxe",
+  "category": "Flower Pots",
+  "categoryOrder": 5,
+  "contents": "5 Pcs",
+  "price": 130,
+  "per": "1 Box",
+  "case": "54 Boxes",
+  "unitNote": "5 Pcs per box · 54 Boxes per case",
+  "images": [
+   "sankamithra/flowerpots/flowerpotsdeluxe/1",
+   "sankamithra/flowerpots/flowerpotsdeluxe/2",
+   "sankamithra/flowerpots/flowerpotsdeluxe/3",
+   "sankamithra/flowerpots/flowerpotsdeluxe/4"
+  ]
+ },
+ {
+  "sno": "S357",
+  "slug": "colour-koti-deluxe",
+  "name": "Colour Koti Deluxe",
+  "category": "Flower Pots",
+  "categoryOrder": 5,
+  "contents": "10 Pcs",
+  "price": 250,
+  "per": "1 Box",
+  "case": "45 Boxes",
+  "unitNote": "10 Pcs per box · 45 Boxes per case",
+  "images": []
+ },
+ {
+  "sno": "S358",
+  "slug": "flower-pots-super-deluxe",
+  "name": "Flower Pots Super Deluxe",
+  "category": "Flower Pots",
+  "categoryOrder": 5,
+  "contents": "2 Pcs",
+  "price": 95,
+  "per": "1 Box",
+  "case": "90 Boxes",
+  "unitNote": "2 Pcs per box · 90 Boxes per case",
+  "images": []
+ },
+ {
+  "sno": "S359",
+  "slug": "rome-pots-colour",
+  "name": "Rome Pots (Colour)",
+  "category": "Flower Pots",
+  "categoryOrder": 5,
+  "contents": "10 Pcs",
+  "price": 210,
+  "per": "1 Box",
+  "case": "40 Boxes",
+  "unitNote": "10 Pcs per box · 40 Boxes per case",
+  "images": []
+ },
+ {
+  "sno": "S401",
+  "slug": "hydro-bomb",
+  "name": "Hydro Bomb",
+  "category": "Atom Bombs",
+  "categoryOrder": 6,
+  "contents": "10 Pcs",
+  "price": 640,
+  "per": "Unit",
+  "case": "30 Units",
+  "unitNote": "10 Pcs per unit · 30 Units per case",
+  "images": [
+   "sankamithra/other/Hydrobomb"
+  ]
+ },
+ {
+  "sno": "S402",
+  "slug": "king-bomb",
+  "name": "King Bomb",
+  "category": "Atom Bombs",
+  "categoryOrder": 6,
+  "contents": "10 Pcs",
+  "price": 770,
+  "per": "Unit",
+  "case": "20 Units",
+  "unitNote": "10 Pcs per unit · 20 Units per case",
+  "images": [
+   "sankamithra/other/42"
+  ]
+ },
+ {
+  "sno": "S403",
+  "slug": "classic-bomb",
+  "name": "Classic Bomb",
+  "category": "Atom Bombs",
+  "categoryOrder": 6,
+  "contents": "10 Pcs",
+  "price": 900,
+  "per": "Unit",
+  "case": "15 Units",
+  "unitNote": "10 Pcs per unit · 15 Units per case",
+  "images": [
+   "sankamithra/other/43"
+  ]
+ },
+ {
+  "sno": "S404",
+  "slug": "bullet-bomb",
+  "name": "Bullet Bomb",
+  "category": "Atom Bombs",
+  "categoryOrder": 6,
+  "contents": "10 Pcs",
+  "price": 172,
+  "per": "Unit",
+  "case": "50 Units",
+  "unitNote": "10 Pcs per unit · 50 Units per case",
+  "images": [
+   "sankamithra/atombombs/bulletbomb/1"
+  ]
+ },
+ {
+  "sno": "S405",
+  "slug": "mega-bullet-bomb",
+  "name": "Mega Bullet Bomb",
+  "category": "Atom Bombs",
+  "categoryOrder": 6,
+  "contents": "10 Pcs",
+  "price": 260,
+  "per": "Unit",
+  "case": "30 Units",
+  "unitNote": "10 Pcs per unit · 30 Units per case",
+  "images": [
+   "sankamithra/atombombs/megabulletbomb/1"
+  ]
+ },
+ {
+  "sno": "S406",
+  "slug": "flower-bomb",
+  "name": "Flower Bomb",
+  "category": "Atom Bombs",
+  "categoryOrder": 6,
+  "contents": "5 Pcs",
+  "price": 50,
+  "per": "1 Box",
+  "case": "200 Boxes",
+  "unitNote": "5 Pcs per box · 200 Boxes per case",
+  "images": [
+   "sankamithra/atombombs/flowerbomb"
+  ]
+ },
+ {
+  "sno": "S407",
+  "slug": "magic-pops-chit-put",
+  "name": "Magic Pops (Chit Put)",
+  "category": "Atom Bombs",
+  "categoryOrder": 6,
+  "contents": "10 Pcs",
+  "price": 265,
+  "per": "Unit",
+  "case": "40 Units",
+  "unitNote": "10 Pcs per unit · 40 Units per case",
+  "images": []
+ },
+ {
+  "sno": "S501",
+  "slug": "red-bijili-griviar-bag-100-pcs",
+  "name": "Red Bijili Griviar Bag (100 Pcs)",
+  "category": "Bijili Crackers",
+  "categoryOrder": 7,
+  "contents": "",
+  "price": 24,
+  "per": "1 Bag",
+  "case": "300 Bags",
+  "unitNote": "Quoted per 1 Bag · 300 Bags per case",
+  "images": [
+   "sankamithra/bijili/redbijiligriviar/1",
+   "sankamithra/bijili/redbijiligriviar/2",
+   "sankamithra/bijili/redbijiligriviar/3",
+   "sankamithra/bijili/redbijiligriviar/4"
+  ]
+ },
+ {
+  "sno": "S502",
+  "slug": "stripped-bijili-griviar-bag-100-pcs",
+  "name": "Stripped Bijili Griviar Bag (100 Pcs)",
+  "category": "Bijili Crackers",
+  "categoryOrder": 7,
+  "contents": "",
+  "price": 26,
+  "per": "1 Bag",
+  "case": "300 Bags",
+  "unitNote": "Quoted per 1 Bag · 300 Bags per case",
+  "images": [
+   "sankamithra/bijili/strippedbijiligriviar/1",
+   "sankamithra/bijili/strippedbijiligriviar/2"
+  ]
+ },
+ {
+  "sno": "S503",
+  "slug": "red-bijili-griviar-bag-50-pcs",
+  "name": "Red Bijili Griviar Bag (50 Pcs)",
+  "category": "Bijili Crackers",
+  "categoryOrder": 7,
+  "contents": "",
+  "price": 12,
+  "per": "1 Bag",
+  "case": "600 Bags",
+  "unitNote": "Quoted per 1 Bag · 600 Bags per case",
+  "images": [
+   "sankamithra/bijili/redbijiligriviar/1",
+   "sankamithra/bijili/redbijiligriviar/2",
+   "sankamithra/bijili/redbijiligriviar/3",
+   "sankamithra/bijili/redbijiligriviar/4"
+  ]
+ },
+ {
+  "sno": "S504",
+  "slug": "stripped-bijili-griviar-bag-50-pcs",
+  "name": "Stripped Bijili Griviar Bag (50 Pcs)",
+  "category": "Bijili Crackers",
+  "categoryOrder": 7,
+  "contents": "",
+  "price": 14,
+  "per": "1 Bag",
+  "case": "300 Bags",
+  "unitNote": "Quoted per 1 Bag · 300 Bags per case",
+  "images": [
+   "sankamithra/bijili/strippedbijiligriviar/1",
+   "sankamithra/bijili/strippedbijiligriviar/2"
+  ]
+ },
+ {
+  "sno": "S505",
+  "slug": "red-bijili-1000-pkts",
+  "name": "Red Bijili (1000 Pkts)",
+  "category": "Bijili Crackers",
+  "categoryOrder": 7,
+  "contents": "",
+  "price": 12000,
+  "per": "1000 Pkt",
+  "case": "1000 Pkts",
+  "unitNote": "Quoted per 1000 Pkt · 1000 Pkts per case",
+  "images": [
+   "sankamithra/bijili/redbijili/1",
+   "sankamithra/bijili/redbijili/2",
+   "sankamithra/bijili/redbijili/3",
+   "sankamithra/bijili/redbijili/4"
+  ]
+ },
+ {
+  "sno": "S506",
+  "slug": "thunder-shower-i",
+  "name": "Thunder Shower I",
+  "category": "Bijili Crackers",
+  "categoryOrder": 7,
+  "contents": "",
+  "price": 240,
+  "per": "1 Box",
+  "case": "36 Boxes",
+  "unitNote": "Quoted per 1 Box · 36 Boxes per case",
+  "images": []
+ },
+ {
+  "sno": "S507",
+  "slug": "thunder-shower-ii",
+  "name": "Thunder Shower II",
+  "category": "Bijili Crackers",
+  "categoryOrder": 7,
+  "contents": "",
+  "price": 480,
+  "per": "1 Box",
+  "case": "20 Boxes",
+  "unitNote": "Quoted per 1 Box · 20 Boxes per case",
+  "images": []
+ },
+ {
+  "sno": "S508",
+  "slug": "thunder-shower-v",
+  "name": "Thunder Shower V",
+  "category": "Bijili Crackers",
+  "categoryOrder": 7,
+  "contents": "",
+  "price": 1200,
+  "per": "1 Box",
+  "case": "7 Boxes",
+  "unitNote": "Quoted per 1 Box · 7 Boxes per case",
+  "images": []
+ },
+ {
+  "sno": "S509",
+  "slug": "thunder-shower-x",
+  "name": "Thunder Shower X",
+  "category": "Bijili Crackers",
+  "categoryOrder": 7,
+  "contents": "",
+  "price": 2400,
+  "per": "1 Box",
+  "case": "4 Boxes",
+  "unitNote": "Quoted per 1 Box · 4 Boxes per case",
+  "images": []
+ },
+ {
+  "sno": "S551",
+  "slug": "1-1-2-twinkling-star",
+  "name": "1 1/2\" Twinkling Star",
+  "category": "Twinkling Stars",
+  "categoryOrder": 8,
+  "contents": "10 Pcs",
+  "price": 200,
+  "per": "Unit",
+  "case": "40 Units",
+  "unitNote": "10 Pcs per unit · 40 Units per case",
+  "images": [
+   "sankamithra/twinklingstars/twinklingstar112/1"
+  ]
+ },
+ {
+  "sno": "S552",
+  "slug": "4-twinkling-star",
+  "name": "4\" Twinkling Star",
+  "category": "Twinkling Stars",
+  "categoryOrder": 8,
+  "contents": "10 Pcs",
+  "price": 500,
+  "per": "Unit",
+  "case": "16 Units",
+  "unitNote": "10 Pcs per unit · 16 Units per case",
+  "images": [
+   "sankamithra/twinklingstars/twinklingstar4/1"
+  ]
+ },
+ {
+  "sno": "S561",
+  "slug": "7-pencil",
+  "name": "7\" Pencil",
+  "category": "Pencils",
+  "categoryOrder": 9,
+  "contents": "10 Pcs",
+  "price": 190,
+  "per": "Unit",
+  "case": "50 Units",
+  "unitNote": "10 Pcs per unit · 50 Units per case",
+  "images": [
+   "sankamithra/pencils/7pencil/1"
+  ]
+ },
+ {
+  "sno": "S562",
+  "slug": "10-pencil",
+  "name": "10\" Pencil",
+  "category": "Pencils",
+  "categoryOrder": 9,
+  "contents": "10 Pcs",
+  "price": 490,
+  "per": "Unit",
+  "case": "30 Units",
+  "unitNote": "10 Pcs per unit · 30 Units per case",
+  "images": [
+   "sankamithra/pencils/10pencil/1"
+  ]
+ },
+ {
+  "sno": "S601",
+  "slug": "12-shots-vector-multi-colour",
+  "name": "12 Shots - Vector (Multi Colour)",
+  "category": "Repeating Shots",
+  "categoryOrder": 10,
+  "contents": "1 Pce",
+  "price": 130,
+  "per": "1 Box",
+  "case": "36 Boxes",
+  "unitNote": "1 Pce per box · 36 Boxes per case",
+  "images": []
+ },
+ {
+  "sno": "S602",
+  "slug": "15-shots-arrival-multi-colour",
+  "name": "15 Shots - Arrival (Multi Colour)",
+  "category": "Repeating Shots",
+  "categoryOrder": 10,
+  "contents": "1 Pce",
+  "price": 170,
+  "per": "1 Box",
+  "case": "30 Boxes",
+  "unitNote": "1 Pce per box · 30 Boxes per case",
+  "images": [
+   "sankamithra/repeatingshots/arrival15/1"
+  ]
+ },
+ {
+  "sno": "S603",
+  "slug": "30-shots-c-r-7-multi-colour",
+  "name": "30 Shots - C R 7 (Multi Colour)",
+  "category": "Repeating Shots",
+  "categoryOrder": 10,
+  "contents": "1 Pce",
+  "price": 300,
+  "per": "1 Box",
+  "case": "18 Boxes",
+  "unitNote": "1 Pce per box · 18 Boxes per case",
+  "images": [
+   "sankamithra/repeatingshots/cr730/1"
+  ]
+ },
+ {
+  "sno": "S604",
+  "slug": "60-shots-gravity-multi-colour",
+  "name": "60 Shots - Gravity (Multi Colour)",
+  "category": "Repeating Shots",
+  "categoryOrder": 10,
+  "contents": "1 Pce",
+  "price": 600,
+  "per": "1 Box",
+  "case": "9 Boxes",
+  "unitNote": "1 Pce per box · 9 Boxes per case",
+  "images": [
+   "sankamithra/repeatingshots/gravity60/1"
+  ]
+ },
+ {
+  "sno": "S605",
+  "slug": "120-shots-gemini-multi-colour",
+  "name": "120 Shots - Gemini (Multi Colour)",
+  "category": "Repeating Shots",
+  "categoryOrder": 10,
+  "contents": "1 Pce",
+  "price": 1200,
+  "per": "1 Box",
+  "case": "6 Boxes",
+  "unitNote": "1 Pce per box · 6 Boxes per case",
+  "images": [
+   "sankamithra/repeatingshots/gemini120/1"
+  ]
+ },
+ {
+  "sno": "S606",
+  "slug": "240-shots-infinity-multi-colour",
+  "name": "240 Shots - Infinity (Multi Colour)",
+  "category": "Repeating Shots",
+  "categoryOrder": 10,
+  "contents": "1 Pce",
+  "price": 2400,
+  "per": "1 Box",
+  "case": "4 Boxes",
+  "unitNote": "1 Pce per box · 4 Boxes per case",
+  "images": []
+ },
+ {
+  "sno": "S651",
+  "slug": "3-piece-fancy-6-varieties",
+  "name": "3 Piece Fancy (6 Varieties)",
+  "category": "Aerial Shots",
+  "categoryOrder": 11,
+  "contents": "3 Pcs",
+  "price": 215,
+  "per": "1 Box",
+  "case": "36 Boxes",
+  "unitNote": "3 Pcs per box · 36 Boxes per case",
+  "images": [
+   "sankamithra/other/110"
+  ]
+ },
+ {
+  "sno": "S652",
+  "slug": "2-fancy-6-varieties",
+  "name": "2\" Fancy (6 Varieties)",
+  "category": "Aerial Shots",
+  "categoryOrder": 11,
+  "contents": "1 Pce",
+  "price": 90,
+  "per": "1 Box",
+  "case": "80 Boxes",
+  "unitNote": "1 Pce per box · 80 Boxes per case",
+  "images": [
+   "sankamithra/other/109"
+  ]
+ },
+ {
+  "sno": "S653",
+  "slug": "2-1-2-fancy-6-varieties",
+  "name": "2 1/2\" Fancy (6 Varieties)",
+  "category": "Aerial Shots",
+  "categoryOrder": 11,
+  "contents": "1 Pce",
+  "price": 115,
+  "per": "1 Box",
+  "case": "66 Boxes",
+  "unitNote": "1 Pce per box · 66 Boxes per case",
+  "images": [
+   "sankamithra/other/108"
+  ]
+ },
+ {
+  "sno": "S654",
+  "slug": "3-1-2-fancy-6-varieties",
+  "name": "3 1/2\" Fancy (6 Varieties)",
+  "category": "Aerial Shots",
+  "categoryOrder": 11,
+  "contents": "1 Pce",
+  "price": 215,
+  "per": "1 Box",
+  "case": "36 Boxes",
+  "unitNote": "1 Pce per box · 36 Boxes per case",
+  "images": [
+   "sankamithra/other/112"
+  ]
+ },
+ {
+  "sno": "S655",
+  "slug": "3-1-2-fancy-nayagara-falls",
+  "name": "3 1/2\" Fancy (Nayagara Falls)",
+  "category": "Aerial Shots",
+  "categoryOrder": 11,
+  "contents": "1 Pce",
+  "price": 230,
+  "per": "1 Box",
+  "case": "36 Boxes",
+  "unitNote": "1 Pce per box · 36 Boxes per case",
+  "images": [
+   "sankamithra/other/discovery"
+  ]
+ },
+ {
+  "sno": "S656",
+  "slug": "4-fancy-double-ball",
+  "name": "4\" Fancy Double Ball",
+  "category": "Aerial Shots",
+  "categoryOrder": 11,
+  "contents": "1 Pce",
+  "price": 380,
+  "per": "1 Box",
+  "case": "30 Boxes",
+  "unitNote": "1 Pce per box · 30 Boxes per case",
+  "images": [
+   "sankamithra/other/113"
+  ]
+ },
+ {
+  "sno": "S657",
+  "slug": "12-shot-crackling-sky-war",
+  "name": "12 Shot - Crackling Sky War",
+  "category": "Aerial Shots",
+  "categoryOrder": 11,
+  "contents": "1 Pce",
+  "price": 145,
+  "per": "1 Box",
+  "case": "48 Boxes",
+  "unitNote": "1 Pce per box · 48 Boxes per case",
+  "images": []
+ },
+ {
+  "sno": "S658",
+  "slug": "12-shot-colour-rider",
+  "name": "12 Shot - Colour Rider",
+  "category": "Aerial Shots",
+  "categoryOrder": 11,
+  "contents": "1 Pce",
+  "price": 145,
+  "per": "1 Box",
+  "case": "48 Boxes",
+  "unitNote": "1 Pce per box · 48 Boxes per case",
+  "images": [
+   "sankamithra/other/12colourrider"
+  ]
+ }
+]

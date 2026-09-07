@@ -1,0 +1,140 @@
+.tradition {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: auto;
+  padding:4rem;
+  position:relative;
+  overflow: hidden;
+
+}
+
+.tradition .text{
+  width: 50%;
+  text-align: center;
+  font-size: 33px;
+  font-weight:300;
+}
+
+.tradition .text span {
+  color: #727272;
+}
+
+.perfectblast {
+  width:60%;
+  padding: 10px 20px;
+  border-radius: 20px;
+  display:flex;
+  justify-content: space-between;
+  gap:20px;
+  background-color: #dadada;
+}
+
+.perfectblast p {
+  font-size: 18px;
+  color: #616161;
+  display:flex;
+  align-items: center;
+  margin:0;
+}
+
+#crack{
+  position:absolute;
+  right:-300px;
+  bottom:-290px;
+}
+
+.perfectblast a {
+  text-decoration: none;
+  padding: 15px 30px;
+  background-color: #ff0f24;
+  border-radius:14px;
+  color: #fff;
+  display:flex;
+  align-items: center;
+  white-space: nowrap;
+}
+.perfectblast a:hover{
+  color:#fff ;
+}
+
+@media screen and (max-width:1400px){
+    .tradition {
+        width:100%;
+
+    }
+    .tradition .text{
+  width: 70%;
+    }
+    .perfectblast {
+  width:70%;
+    }
+
+
+}
+@media screen and (max-width:1200px){
+  #crack{
+    display: none;
+  }
+      .tradition .text{
+  width: 80%;
+    }
+    .perfectblast {
+  width:80%;
+    }
+}
+@media screen and (max-width:950px){
+    .tradition{
+        padding:14px;
+    }
+      .tradition .text{
+  width: 90%;
+  font-size: 28px;
+    }
+    .perfectblast {
+  width:90%;
+    }
+    .perfectblast a {
+        padding:13px 20px;
+        
+    }
+}
+@media screen and (max-width:600px){
+       .tradition {
+        width:100%;
+        padding:10px;
+
+    }
+      .tradition .text{
+   font-size: 20px;
+  width: 90%;
+    }
+
+    .perfectblast {
+  width:90%;
+  padding:10px;
+    }
+     .perfectblast a {
+        padding:7px 15px;
+        
+    }
+     .perfectblast p{
+    font-size: 18px;
+  }
+    
+}
+@media screen and (max-width:420px){
+  .perfectblast {
+     width:100%;
+  }
+  .perfectblast p{
+    font-size: 16px;
+  }
+   .perfectblast a {
+        padding:5px 10px;
+        font-size: 12px;;
+    }
+}

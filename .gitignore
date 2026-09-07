@@ -1,0 +1,22 @@
+# dependencies
+node_modules/
+
+# build output
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+
+# source photography — the masters live outside git; everything the site
+# serves is on Cloudinary. Drop these lines if you want them versioned.
+/database/
+/images/
+
+# os / editor
+.DS_Store
+*.log
+
+# never commit these
+.env
+.env.*
+!.env.example

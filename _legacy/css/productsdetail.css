@@ -1,0 +1,261 @@
+body {
+  background-color: #f6f6f6;
+}
+.Products-Con {
+  width: 80%;
+  margin: 10rem auto;
+}
+.product-detail {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  padding: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  background-color: #ffff;
+  border-radius: 20px;
+}
+
+.product-left {
+  flex: 1;
+  flex-basis: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.thumbnail-row {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+.thumbnail-row img {
+  width: 82px;
+  height: 82px;
+  cursor: pointer;
+}
+.product-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex-basis: 40%;
+}
+
+.product-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0.2rem 0;
+}
+
+.in-stock {
+  color: green;
+  font-weight: 500;
+}
+
+.sku-label {
+  font-size: 0.9rem;
+  color: #666;
+  display: none;
+}
+
+.product-description {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin: 0.5rem 0;
+  font-size: 17px;
+}
+
+.product-description li {
+  margin-bottom: 0.4rem;
+  line-height: 1.5;
+  font-size: 1rem;
+}
+
+/* ====== Shop Now Button ====== */
+.shop-now-btn {
+  background: #ff6600;
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+  width: fit-content;
+}
+
+.shop-now-btn:hover {
+  background: #e65500;
+}
+.main-image-wrapper {
+  position: relative;
+  width: 90%;
+  max-width: 450px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3; /* maintain aspect ratio */
+}
+
+.image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.main-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  transform-origin: center center;
+}
+
+/* .img-magnifier-glass {
+  position: absolute;
+
+  border-radius: 50%;
+  cursor: pointer;
+  
+  width: 100px;
+  height: 100px;
+} */
+
+.expand-btn {
+  position: absolute;
+  top: 10px;
+  right: 60px;
+  background: #fff;
+  border: 1px solid #5642c7;
+  color: #5642c7;
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  z-index: 10;
+}
+.expand-btn i {
+  z-index: 999;
+}
+
+/* Slide out */
+.main-image {
+  transition: transform 0.4s ease, opacity 0.4s ease;
+
+  display: block;
+  width: 100%;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Slide out */
+.slide-out-left {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.slide-out-right {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+/* Slide in */
+.slide-in-left {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.slide-in-right {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.thumbnail.active {
+  border: 2px solid #007bff;
+}
+
+.lightbox {
+  display: none;
+
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  z-index: 11111;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.3) 50%,
+    rgba(0, 0, 0, 0.3) 50%
+  );
+  /* border-radius: 20px; */
+}
+.lightbox-content {
+  display: flex;
+
+  height: auto;
+  align-items: center;
+  justify-content: center;
+  max-width: 80%;
+  margin-top: 5%;
+}
+
+.lightbox .close {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  color: black;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 950px) {
+  .product-detail {
+    flex-direction: column;
+    padding: 10px;
+  }
+  .product-detail .product-left {
+    width: 100%;
+    padding: 2rem;
+  }
+  .main-image-wrapper {
+    min-height: 200px;
+  }
+  .Products-Con {
+    width: 90%;
+  }
+  .product-detail .product-right {
+    width: 100%;
+    padding: 2rem;
+  }
+  .thumbnail-row {
+    justify-content: center;
+  }
+  .expand-btn {
+    padding: 10px 20px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .lightbox {
+    height: 60%;
+  }
+  .expand-btn {
+    right: 50px;
+    padding: 6px 20px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .expand-btn {
+    right: 10px;
+    padding: 5px 10px;
+  }
+}
