@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { fireworkAudio, soundOn } from "@/lib/firework-audio";
 
 /**
  * Hero sky — a Diwali night rather than a single repeating firework.
@@ -29,6 +30,8 @@ type Particle = {
   gravity: number; drag: number;
   /** twinkles on and off — the "crackle" of a glitter shell */
   flicker: number;
+  /** colour it burns towards; real stars change as the composition burns */
+  shift: RGB | null;
   /** short position history, drawn as a tapering tail */
   tail: { x: number; y: number }[] | null;
   tailMax: number;
@@ -43,6 +46,8 @@ export default function FireworksCanvas() {
   const ref = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
+    /** null until the visitor turns sound on, so nothing is ever scheduled. */
+    const audioRef = { get current() { return soundOn() ? fireworkAudio() : null; } };
     const canvas = ref.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d", { alpha: true });
@@ -77,7 +82,7 @@ export default function FireworksCanvas() {
     /* ---- frame governor: thin the show rather than drop frames ---------- */
     let quality = 1;              // 0.35 … 1
     let slowFrames = 0, fastFrames = 0;
-    const CEILING = () => Math.round(Math.min(1500, (W * H) / 900) * quality);
+    const CEILING = () => Math.round(Math.min(2600, (W * H) / 560) * quality);
 
     function resize() {
       dpr = Math.min(devicePixelRatio || 1, 2);
@@ -115,6 +120,7 @@ export default function FireworksCanvas() {
         gravity: 0.018,
         drag: 0.985,
         flicker: 0,
+        shift: null,
         tail: null,
         tailMax: 0,
         ...o,
@@ -124,7 +130,7 @@ export default function FireworksCanvas() {
     /* ------------------------------------------------------------ bursts */
 
     function burst(x: number, y: number, colour: RGB, kind: Kind, scale = 1) {
-      const base = Math.round(Math.min(150, Math.max(50, (W * H) / 7000)) * quality * scale);
+      const base = Math.round(Math.min(230, Math.max(74, (W * H) / 4600)) * quality * scale);
       const n = Math.min(base, room());
       if (n <= 0) return;
 
@@ -140,14 +146,27 @@ export default function FireworksCanvas() {
         }
       }
 
-      const power = rand(2.8, 4.9) * (Math.min(W, H) / 820) * scale;
+      const power = rand(3.1, 5.4) * (Math.min(W, H) / 820) * scale;
+      // most shells burn towards a second colour partway through
+      const shift: RGB | null = Math.random() < 0.55 ? pick(PALETTE) : null;
+
+      // one shell in seven carries a strobing white layer over its colour
+      if (Math.random() < 0.14 && kind !== "crackle") {
+        const m = Math.min(Math.round(n * 0.3), room());
+        for (let i = 0; i < m; i++) {
+          parts.push(spark(x, y, Math.random() * Math.PI * 2, power * rand(0.3, 0.9), [255, 250, 238], {
+            decay: rand(0.004, 0.008), size: rand(1, 1.9),
+            gravity: 0.014, flicker: rand(0.8, 1.6),
+          }));
+        }
+      }
 
       switch (kind) {
         /* dense sphere, clean fade */
         case "peony":
           for (let i = 0; i < n; i++) {
             parts.push(spark(x, y, Math.random() * Math.PI * 2, power * Math.random(), colour, {
-              decay: rand(0.007, 0.016), size: rand(0.9, 2.3),
+              decay: rand(0.006, 0.014), size: rand(1.1, 2.8), shift,
             }));
           }
           break;
@@ -156,8 +175,8 @@ export default function FireworksCanvas() {
         case "chrys":
           for (let i = 0; i < n; i++) {
             parts.push(spark(x, y, Math.random() * Math.PI * 2, power * (0.5 + Math.random() * 0.5), colour, {
-              decay: rand(0.006, 0.012), size: rand(1.1, 2.2),
-              tail: [], tailMax: 6,
+              decay: rand(0.005, 0.011), size: rand(1.3, 2.6), shift,
+              tail: [], tailMax: 8,
             }));
           }
           break;
@@ -167,27 +186,37 @@ export default function FireworksCanvas() {
           for (let i = 0; i < n; i++) {
             const a = (i / n) * Math.PI * 2 + rand(-0.1, 0.1);
             parts.push(spark(x, y, a, power * rand(0.45, 0.8), GOLD, {
-              decay: rand(0.0028, 0.005), size: rand(1.2, 2.4),
+              decay: rand(0.0024, 0.0044), size: rand(1.4, 2.8),
               gravity: 0.03, drag: 0.976,
-              tail: [], tailMax: 10,
+              flicker: Math.random() < 0.3 ? rand(0.1, 0.3) : 0,
+              tail: [], tailMax: 13,
             }));
           }
           break;
 
-        /* flat expanding ring */
+        /* flat expanding ring — sometimes two, crossed */
         case "ring": {
-          const tilt = rand(0, Math.PI);
-          const squash = rand(0.18, 0.42);
-          for (let i = 0; i < n; i++) {
-            const a = (i / n) * Math.PI * 2;
-            const ux = Math.cos(a), uy = Math.sin(a) * squash;
-            const rx = ux * Math.cos(tilt) - uy * Math.sin(tilt);
-            const ry = ux * Math.sin(tilt) + uy * Math.cos(tilt);
-            const sp = power * rand(0.92, 1.06);
-            parts.push({
-              ...spark(x, y, 0, 0, colour, { decay: rand(0.008, 0.013), size: rand(1.1, 2) }),
-              vx: rx * sp, vy: ry * sp,
-            });
+          const rings = Math.random() < 0.45 ? 2 : 1;
+          const per = Math.floor(n / rings);
+          for (let k = 0; k < rings; k++) {
+            const tilt = rand(0, Math.PI);
+            const squash = rand(0.18, 0.42);
+            const ringColour = k === 0 ? colour : pick(PALETTE);
+            for (let i = 0; i < per; i++) {
+              const a = (i / per) * Math.PI * 2;
+              const ux = Math.cos(a);
+              const uy = Math.sin(a) * squash;
+              const rx = ux * Math.cos(tilt) - uy * Math.sin(tilt);
+              const ry = ux * Math.sin(tilt) + uy * Math.cos(tilt);
+              const sp = power * rand(0.92, 1.06) * (k ? 0.72 : 1);
+              parts.push({
+                ...spark(x, y, 0, 0, ringColour, {
+                  decay: rand(0.007, 0.012), size: rand(1.3, 2.4),
+                }),
+                vx: rx * sp,
+                vy: ry * sp,
+              });
+            }
           }
           break;
         }
@@ -238,8 +267,10 @@ export default function FireworksCanvas() {
 
     function launch(x?: number, kind?: Kind) {
       const targetY = H * rand(0.08, 0.34);
+      const sx = x ?? lane();
+      if (Math.random() < 0.55) audioRef.current?.launch(sx / W);
       shells.push({
-        x: x ?? lane(),
+        x: sx,
         y: H + 8,
         vx: rand(-0.35, 0.35),
         vy: -(Math.sqrt(2 * 0.11 * (H - targetY)) + rand(0, 0.55)),
@@ -255,6 +286,7 @@ export default function FireworksCanvas() {
       const x = W < 900 ? W * rand(0.1, 0.9) : W * rand(0.58, 0.95);
       const y = H * 0.92;
       const colour = pick([GOLD, [255, 228, 150], [255, 170, 90]] as RGB[]);
+      audioRef.current?.fountain(x / W);
       const n = Math.min(46, room());
       for (let i = 0; i < n; i++) {
         parts.push(spark(x, y, -Math.PI / 2 + rand(-0.34, 0.34), rand(2.4, 5.2), colour, {
@@ -278,10 +310,16 @@ export default function FireworksCanvas() {
     /* -------------------------------------------------------------- draw */
 
     function step(dt: number) {
+      /* Fading rather than clearing leaves a short wake behind every spark —
+         the single biggest difference between "dots moving" and "fireworks".
+         destination-out erases by alpha, keeping the canvas transparent over
+         the hero gradient. */
+      ctx!.globalCompositeOperation = "destination-out";
+      ctx!.fillStyle = `rgba(0,0,0,${Math.min(0.5, 0.16 * dt)})`;
+      ctx!.fillRect(0, 0, W, H);
       ctx!.globalCompositeOperation = "source-over";
-      ctx!.clearRect(0, 0, W, H);
 
-      /* starfield */
+      /* starfield — repainted each frame over the fade */
       ctx!.fillStyle = "#fff6e6";
       for (const s of stars) {
         s.ph += s.tw * dt;
@@ -347,11 +385,17 @@ export default function FireworksCanvas() {
 
         if (s.vy >= -0.35 || s.y <= s.targetY) {
           burst(s.x, s.y, s.colour, s.kind);
+          audioRef.current?.boom(s.x / W, s.y / H, s.kind);
           // one in six opens again, smaller, a beat later
           if (Math.random() < 0.17) {
             const { x, y, kind } = s;
             const c = pick(PALETTE);
-            setTimeout(() => running && burst(x, y + 12, c, kind === "willow" ? "crackle" : "peony", 0.55), 420);
+            setTimeout(() => {
+              if (!running) return;
+              const k2 = kind === "willow" ? "crackle" : "peony";
+              burst(x, y + 12, c, k2, 0.55);
+              audioRef.current?.boom(x / W, y / H, k2, 0.5);
+            }, 420);
           }
           shells.splice(i, 1);
         }
@@ -379,23 +423,42 @@ export default function FireworksCanvas() {
           let a = p.life;
           if (p.flicker) a *= 0.45 + 0.55 * Math.abs(Math.sin(p.life * 90 * p.flicker));
 
-          ctx!.fillStyle = `rgb(${p.colour[0]},${p.colour[1]},${p.colour[2]})`;
+          let col = p.colour;
+          if (p.shift) {
+            const k = 1 - p.life;
+            col = [
+              p.colour[0] + (p.shift[0] - p.colour[0]) * k,
+              p.colour[1] + (p.shift[1] - p.colour[1]) * k,
+              p.colour[2] + (p.shift[2] - p.colour[2]) * k,
+            ] as unknown as RGB;
+          }
+          ctx!.fillStyle = `rgb(${col[0] | 0},${col[1] | 0},${col[2] | 0})`;
 
           if (p.tail && p.tail.length > 1) {
             for (let t = 0; t < p.tail.length; t++) {
               const q = p.tail[t];
               const f = t / p.tail.length;
-              ctx!.globalAlpha = Math.max(0, a * f * 0.55);
+              ctx!.globalAlpha = Math.max(0, a * f * 0.5);
               ctx!.beginPath();
               ctx!.arc(q.x, q.y, p.size * f * 0.75, 0, Math.PI * 2);
               ctx!.fill();
             }
           }
 
+          const r = p.size * Math.max(0.25, p.life);
           ctx!.globalAlpha = Math.max(0, a);
           ctx!.beginPath();
-          ctx!.arc(p.x, p.y, p.size * Math.max(0.25, p.life), 0, Math.PI * 2);
+          ctx!.arc(p.x, p.y, r, 0, Math.PI * 2);
           ctx!.fill();
+
+          // a hot white core on the brightest sparks
+          if (a > 0.55 && r > 1.1) {
+            ctx!.globalAlpha = (a - 0.55) * 1.4;
+            ctx!.fillStyle = "#fff8ec";
+            ctx!.beginPath();
+            ctx!.arc(p.x, p.y, r * 0.45, 0, Math.PI * 2);
+            ctx!.fill();
+          }
         }
       }
 
@@ -440,6 +503,7 @@ export default function FireworksCanvas() {
     const start = () => {
       if (running || reduced) return;
       running = true;
+      audioRef.current?.resume();
       last = performance.now();
       spawnAt = last + 240;
       fountainAt = last + 1400;
@@ -449,6 +513,7 @@ export default function FireworksCanvas() {
       running = false;
       if (raf) cancelAnimationFrame(raf);
       raf = null;
+      audioRef.current?.suspend();
     };
 
     resize();

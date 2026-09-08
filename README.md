@@ -130,6 +130,32 @@ which crops the product name printed across it.
 Where a product has a demo, it appears on its page under the CTAs with
 `VideoObject` schema alongside the `Product` schema.
 
+## The hero display
+
+`FireworksCanvas` draws six shell types (peony, chrysanthemum, willow, ring,
+crackle, palm) with tails, hue shift as a star burns, strobe layers, double
+rings, multi-breaks, salvos, ground fountains and drifting embers. The canvas
+fades rather than clears each frame, which is what gives every spark a wake.
+
+`lib/firework-audio.ts` synthesises the sound — nothing is downloaded. Reports
+are filtered noise with a swept lowpass plus a sine thump; crackle is a few
+dozen scheduled noise pops; the whistle is a swept sawtooth. Everything is
+panned by the shell's x position and the report is delayed by its height,
+because light beats sound.
+
+Non-negotiables if you touch this:
+
+- **Sound is off by default and needs a tap.** The AudioContext is not even
+  constructed until the toggle is pressed, and muting stops *scheduling*, not
+  just volume — verified by counting voices before and after.
+- **`prefers-reduced-motion` paints one still frame and never starts a loop.**
+  The test asserts zero `requestAnimationFrame` calls.
+- **A frame-time governor** thins bursts when frames run long and restores
+  quality when they recover. Measured 60fps, worst frame 17ms.
+- The hero vignette carries a directional scrim so the copy stays legible now
+  that the sky is busy. Shells are also placed clear of the headline column on
+  wide viewports.
+
 ## SEO and answer engines
 
 - **The whole price list is in the HTML.** The card grid paginates to 24, so a

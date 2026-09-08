@@ -21,8 +21,9 @@ import {
   Arrow, Check, Spark, Whatsapp, Pin, Mail, Factory, Truck, Store, Shield, Tag, Leaf,
 } from "@/components/Icons";
 
-/* Canvas is decorative — keep it out of the critical path entirely. */
+/* Decorative — kept out of the critical path. */
 const FireworksCanvas = dynamic(() => import("@/components/FireworksCanvas"), { ssr: true });
+const SoundToggle = dynamic(() => import("@/components/SoundToggle"), { ssr: true });
 
 export const metadata: Metadata = { alternates: { canonical: "/" } };
 
@@ -116,6 +117,7 @@ export default function Home() {
               <span className="chip">Manufacturer</span>
               <span className="chip">Wholesaler</span>
               <span className="chip">Retailer</span>
+              <SoundToggle />
             </div>
 
             <h1 className="hero__title" data-split="">
