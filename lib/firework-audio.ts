@@ -99,7 +99,8 @@ export class FireworkAudio {
   launch(x: number) {
     if (!this.started || !this.ctx) return;
     const t = this.ctx.currentTime;
-    const dur = rand(0.7, 1.05);
+    // matched to the climb, which is now ~2s
+    const dur = rand(1.7, 2.2);
 
     const osc = this.ctx.createOscillator();
     osc.type = "sawtooth";
@@ -113,7 +114,8 @@ export class FireworkAudio {
 
     const g = this.ctx.createGain();
     g.gain.setValueAtTime(0.0001, t);
-    g.gain.exponentialRampToValueAtTime(0.05, t + 0.12);
+    g.gain.exponentialRampToValueAtTime(0.045, t + 0.2);
+    g.gain.exponentialRampToValueAtTime(0.012, t + dur * 0.75);
     g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
 
     osc.connect(bp).connect(g).connect(this.pan(x)).connect(this.master!);

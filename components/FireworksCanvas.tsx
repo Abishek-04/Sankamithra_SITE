@@ -65,6 +65,10 @@ export default function FireworksCanvas() {
     const GOLD: RGB = [255, 198, 92];
 
     const KINDS: Kind[] = ["peony", "chrys", "willow", "ring", "crackle", "palm"];
+
+    /* px per frame², at 60fps. Lower = longer, lazier climb.
+       Rise to apex takes sqrt(2·d/GRAV) frames, so a 600px climb is ~2.2s. */
+    const GRAV = 0.062;
     const pick = <T,>(a: readonly T[]): T => a[(Math.random() * a.length) | 0];
     const rand = (a: number, b: number) => a + Math.random() * (b - a);
 
@@ -273,7 +277,8 @@ export default function FireworksCanvas() {
         x: sx,
         y: H + 8,
         vx: rand(-0.35, 0.35),
-        vy: -(Math.sqrt(2 * 0.11 * (H - targetY)) + rand(0, 0.55)),
+        // exactly enough to arrive at targetY with almost no speed left
+        vy: -Math.sqrt(2 * GRAV * (H - targetY)) * rand(1, 1.05),
         targetY,
         colour: pick(PALETTE),
         kind: kind ?? pick(KINDS),
@@ -366,24 +371,34 @@ export default function FireworksCanvas() {
       /* rising shells */
       for (let i = shells.length - 1; i >= 0; i--) {
         const s = shells[i];
-        s.vy += 0.11 * dt * 0.06;
+        s.vy += GRAV * dt;
         s.x += s.vx * dt;
         s.y += s.vy * dt;
 
         s.trail.push({ x: s.x, y: s.y });
-        if (s.trail.length > 10) s.trail.shift();
+        if (s.trail.length > 16) s.trail.shift();
 
-        for (let t = 0; t < s.trail.length; t++) {
-          const p = s.trail[t];
+        ctx!.strokeStyle = `rgb(${s.colour[0]},${s.colour[1]},${s.colour[2]})`;
+        ctx!.lineCap = "round";
+        for (let t = 1; t < s.trail.length; t++) {
+          const a = s.trail[t - 1];
+          const c = s.trail[t];
           const f = t / s.trail.length;
-          ctx!.globalAlpha = f * 0.65;
-          ctx!.fillStyle = `rgb(${s.colour[0]},${s.colour[1]},${s.colour[2]})`;
+          ctx!.globalAlpha = f * f * 0.7;
+          ctx!.lineWidth = 0.5 + f * 2.4;
           ctx!.beginPath();
-          ctx!.arc(p.x, p.y, 1.6 * f + 0.4, 0, Math.PI * 2);
-          ctx!.fill();
+          ctx!.moveTo(a.x, a.y);
+          ctx!.lineTo(c.x, c.y);
+          ctx!.stroke();
         }
+        // the burning head
+        ctx!.globalAlpha = 0.95;
+        ctx!.fillStyle = "#fff4e0";
+        ctx!.beginPath();
+        ctx!.arc(s.x, s.y, 1.9, 0, Math.PI * 2);
+        ctx!.fill();
 
-        if (s.vy >= -0.35 || s.y <= s.targetY) {
+        if (s.vy >= -0.22 || s.y <= s.targetY) {
           burst(s.x, s.y, s.colour, s.kind);
           audioRef.current?.boom(s.x / W, s.y / H, s.kind);
           // one in six opens again, smaller, a beat later
@@ -435,14 +450,14 @@ export default function FireworksCanvas() {
           ctx!.fillStyle = `rgb(${col[0] | 0},${col[1] | 0},${col[2] | 0})`;
 
           if (p.tail && p.tail.length > 1) {
-            for (let t = 0; t < p.tail.length; t++) {
-              const q = p.tail[t];
-              const f = t / p.tail.length;
-              ctx!.globalAlpha = Math.max(0, a * f * 0.5);
-              ctx!.beginPath();
-              ctx!.arc(q.x, q.y, p.size * f * 0.75, 0, Math.PI * 2);
-              ctx!.fill();
-            }
+            ctx!.globalAlpha = Math.max(0, a * 0.38);
+            ctx!.strokeStyle = ctx!.fillStyle as string;
+            ctx!.lineWidth = p.size * 0.72;
+            ctx!.beginPath();
+            ctx!.moveTo(p.tail[0].x, p.tail[0].y);
+            for (let t = 1; t < p.tail.length; t++) ctx!.lineTo(p.tail[t].x, p.tail[t].y);
+            ctx!.lineTo(p.x, p.y);
+            ctx!.stroke();
           }
 
           const r = p.size * Math.max(0.25, p.life);
@@ -479,14 +494,14 @@ export default function FireworksCanvas() {
       if (slowFrames > 24 && quality > 0.35) { quality = Math.max(0.35, quality - 0.12); slowFrames = 0; }
       else if (fastFrames > 180 && quality < 1) { quality = Math.min(1, quality + 0.08); fastFrames = 0; }
 
-      if (t > spawnAt && shells.length < 5) {
+      if (t > spawnAt && shells.length < 4) {
         launch();
         // an occasional salvo, the way a real volley goes up
         if (Math.random() < 0.3) {
           launch();
-          if (Math.random() < 0.4) setTimeout(() => running && launch(), 190);
+          if (Math.random() < 0.4) setTimeout(() => running && launch(), 320);
         }
-        spawnAt = t + rand(520, 1500);
+        spawnAt = t + rand(900, 2100);
       }
 
       if (t > fountainAt) {

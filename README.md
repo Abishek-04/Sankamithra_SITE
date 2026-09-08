@@ -143,6 +143,13 @@ dozen scheduled noise pops; the whistle is a swept sawtooth. Everything is
 panned by the shell's x position and the report is delayed by its height,
 because light beats sound.
 
+The climb is deliberately slow — about 2.1s from launch to break. One `GRAV`
+constant sizes the launch velocity *and* decelerates the shell, so it coasts to
+an apex and opens there. (They were previously mismatched: the launch assumed
+0.11 while the loop applied 0.0066, so a shell crossed its target height at
+speed and popped rather than easing into it.) Trails are stroked polylines, not
+rows of circles — at ~8px travelled per frame, circles leave visible gaps.
+
 Non-negotiables if you touch this:
 
 - **Sound is off by default and needs a tap.** The AudioContext is not even
