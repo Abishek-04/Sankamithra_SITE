@@ -13,6 +13,7 @@ import VideoPlayer from "@/components/VideoPlayer";
 import { toCard } from "@/lib/card";
 import { money, moneyFine, perLabel, unitPrice, waLink } from "@/lib/format";
 import { site } from "@/lib/site";
+import { breadcrumbs, graph, ORG_ID } from "@/lib/schema";
 import { Arrow, Info, Whatsapp } from "@/components/Icons";
 
 /* One static page per row of the price list — 91 pre-rendered documents. */
@@ -34,7 +35,7 @@ export async function generateMetadata({ params }: { params: Promise<{ sno: stri
 
   return {
     title: `${p.sno} ${p.name}`,
-    description: desc,
+    description: desc.length > 158 ? desc.slice(0, 155).trimEnd() + "…" : desc,
     alternates: { canonical: `/products/${p.sno}` },
     openGraph: {
       title: `${p.name} — ${site.name}`,
@@ -55,8 +56,13 @@ export default async function ProductPage({ params }: { params: Promise<{ sno: s
   const related = getRelated(p);
   const video = getVideoForProduct(p.sno);
 
-  const jsonLd = {
-    "@context": "https://schema.org",
+  const jsonLd = graph(
+    breadcrumbs([
+      { name: "Home", path: "/" },
+      { name: "2026 Price List", path: "/products" },
+      { name: `${p.sno} ${p.name}`, path: `/products/${p.sno}` },
+    ]),
+    {
     "@type": "Product",
     sku: p.sno,
     name: p.name,
@@ -64,15 +70,32 @@ export default async function ProductPage({ params }: { params: Promise<{ sno: s
     description: p.unitNote,
     brand: { "@type": "Brand", name: site.name },
     image: p.images.map((i) => `https://res.cloudinary.com/${site.cloudName}/image/upload/f_auto,q_auto,c_limit,w_1200/${i}`),
+    /* the printed columns, so the rate is machine-readable in context */
+    additionalProperty: [
+      { "@type": "PropertyValue", name: "S.No", value: p.sno },
+      ...(p.contents ? [{ "@type": "PropertyValue", name: "Box contents", value: p.contents }] : []),
+      { "@type": "PropertyValue", name: "Per rate", value: p.per },
+      { "@type": "PropertyValue", name: "Case quantity", value: p.case },
+    ],
     offers: {
       "@type": "Offer",
       price: p.price,
       priceCurrency: "INR",
       availability: "https://schema.org/InStock",
       url: `${site.url}/products/${p.sno}`,
-      seller: { "@type": "Organization", name: site.name },
+      seller: { "@id": ORG_ID },
+      priceValidUntil: "2027-04-30",
+      eligibleQuantity: { "@type": "QuantitativeValue", unitText: p.per },
+      priceSpecification: {
+        "@type": "UnitPriceSpecification",
+        price: p.price,
+        priceCurrency: "INR",
+        referenceQuantity: { "@type": "QuantitativeValue", unitText: p.per },
+        valueAddedTaxIncluded: false,
+      },
     },
-  };
+    },
+  );
 
   const videoLd = video && {
     "@context": "https://schema.org",
@@ -87,7 +110,7 @@ export default async function ProductPage({ params }: { params: Promise<{ sno: s
 
   return (
     <main id="main">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
       {videoLd && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(videoLd) }} />
       )}

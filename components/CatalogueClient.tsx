@@ -25,9 +25,12 @@ type Sort = "featured" | "price-asc" | "price-desc" | "sno" | "name";
 export default function CatalogueClient({
   products,
   categories,
+  priceTable,
 }: {
   products: CardProduct[];
   categories: { name: string; count: number }[];
+  /** server-rendered full table — passed through so its 91 rows stay in HTML */
+  priceTable?: React.ReactNode;
 }) {
   const [q, setQ] = useState("");
   const [cats, setCats] = useState<string[]>([]);
@@ -216,6 +219,8 @@ export default function CatalogueClient({
               </button>
             </div>
           )}
+
+          {priceTable}
 
           <section className="terms" data-reveal="">
             <h2 className="h3">Terms &amp; conditions</h2>

@@ -4,11 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node tools/build-llms.mjs && next build",
     "start": "npx serve@latest out -l 3000",
     "lint": "next lint",
     "catalogue": "python3 tools/build-catalogue.py",
     "videos": "node tools/fetch-videos.mjs",
+    "llms": "node tools/build-llms.mjs",
     "verify": "node tools/verify.mjs"
   },
   "dependencies": {

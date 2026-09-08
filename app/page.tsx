@@ -9,9 +9,13 @@ import HomeCatalogue from "@/components/HomeCatalogue";
 import Testimonials from "@/components/Testimonials";
 import VideoReel from "@/components/VideoReel";
 import ChannelSection from "@/components/ChannelSection";
+import Faq from "@/components/Faq";
 import EnquiryForm from "@/components/EnquiryForm";
 import { site } from "@/lib/site";
 import { getProducts } from "@/lib/products";
+import { getVideos } from "@/lib/videos";
+import { FAQ } from "@/lib/faq";
+import { breadcrumbs, faqPage, graph, organization, website, ORG_ID } from "@/lib/schema";
 import { formatPhone } from "@/lib/format";
 import {
   Arrow, Check, Spark, Whatsapp, Pin, Mail, Factory, Truck, Store, Shield, Tag, Leaf,
@@ -57,33 +61,48 @@ const ASSURE = [
 export default function Home() {
   const total = getProducts().length;
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": `${site.url}/#business`,
-    name: site.name,
-    description: "Firecracker manufacturer, wholesaler and retailer based in Sivakasi, Tamil Nadu.",
-    url: site.url,
-    logo: `${site.url}/images/LogoFrame.png`,
-    telephone: site.phonePrimary,
-    email: site.email,
-    foundingDate: "2020",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: site.office.street,
-      addressLocality: site.office.locality,
-      addressRegion: site.office.region,
-      postalCode: site.office.postcode,
-      addressCountry: "IN",
+  const jsonLd = graph(
+    organization(),
+    website(),
+    {
+      "@type": "LocalBusiness",
+      "@id": `${site.url}/#business`,
+      name: site.name,
+      parentOrganization: { "@id": ORG_ID },
+      description:
+        "Licensed firecracker manufacturer, wholesaler and retailer in Sivakasi, Tamil Nadu. 91 items on the 2026 price list, supplied in bulk across India.",
+      url: site.url,
+      image: `${site.url}/images/LogoFrame.png`,
+      telephone: site.phonePrimary,
+      email: site.email,
+      priceRange: "₹₹",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: site.office.street,
+        addressLocality: site.office.locality,
+        addressRegion: site.office.region,
+        postalCode: site.office.postcode,
+        addressCountry: "IN",
+      },
+      geo: { "@type": "GeoCoordinates", latitude: 9.2988, longitude: 77.8711 },
+      areaServed: { "@type": "Country", name: "India" },
+      makesOffer: {
+        "@type": "Offer",
+        itemOffered: { "@type": "Product", name: "Firecrackers", category: "Fireworks" },
+        priceCurrency: "INR",
+        eligibleQuantity: { "@type": "QuantitativeValue", minValue: 50, unitText: "boxes" },
+      },
+      numberOfEmployees: { "@type": "QuantitativeValue", minValue: 50 },
+      foundingDate: "2020",
+      sameAs: [site.youtube, site.shopUrl],
     },
-    geo: { "@type": "GeoCoordinates", latitude: 9.2988, longitude: 77.8711 },
-    areaServed: "IN",
-    priceRange: "₹₹",
-  };
+    faqPage(FAQ.map((f) => ({ q: f.q, a: f.a }))),
+    breadcrumbs([{ name: "Home", path: "/" }]),
+  );
 
   return (
     <main id="main">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
 
       {/* ---------------------------------------------------------- hero */}
       <section className="hero noise tone-night">
@@ -338,6 +357,8 @@ export default function Home() {
           <Testimonials />
         </div>
       </section>
+
+      <Faq />
 
       {/* -------------------------------------------------------- contact */}
       <section className="section" id="contact">

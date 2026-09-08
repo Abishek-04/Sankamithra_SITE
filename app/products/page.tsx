@@ -5,14 +5,16 @@ import "@/styles/home.css";
 import "@/styles/catalogue.css";
 
 import CatalogueClient from "@/components/CatalogueClient";
+import PriceTable from "@/components/PriceTable";
 import { getCategories, getProducts } from "@/lib/products";
 import { toCard } from "@/lib/card";
 import { site } from "@/lib/site";
+import { breadcrumbs, graph, ORG_ID } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "2026 Price List — 91 items, ex-factory rates",
+  title: "2026 Price List — 91 items, ex-factory",
   description:
-    "The complete Sankamithra Fireworks 2026 price list — 91 items across specials, magics, one sound crackers, chakkars, flower pots, atom bombs, bijili, pencils, repeating shots and aerial shots. Ex-factory rates, effective 1 May 2026.",
+    "The full Sankamithra Fireworks 2026 price list: 91 items with S.No, box contents, rate and case quantity. Ex-factory, effective 1 May 2026. Wholesale from 50 boxes.",
   alternates: { canonical: "/products" },
 };
 
@@ -22,8 +24,12 @@ export default function CataloguePage() {
   const categories = getCategories();
 
   /* ItemList so the whole sheet is machine-readable in one document */
-  const jsonLd = {
-    "@context": "https://schema.org",
+  const jsonLd = graph(
+    breadcrumbs([
+      { name: "Home", path: "/" },
+      { name: "2026 Price List", path: "/products" },
+    ]),
+    {
     "@type": "ItemList",
     name: `${site.name} — ${site.priceList.label}`,
     numberOfItems: products.length,
@@ -42,14 +48,17 @@ export default function CataloguePage() {
           priceCurrency: "INR",
           availability: "https://schema.org/InStock",
           url: `${site.url}/products/${p.sno}`,
+          seller: { "@id": ORG_ID },
+          priceValidUntil: "2027-04-30",
         },
       },
     })),
-  };
+    },
+  );
 
   return (
     <main id="main">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
 
       <section className="page-head noise tone-night">
         <div className="shell page-head__inner">
@@ -71,7 +80,7 @@ export default function CataloguePage() {
         </div>
       </section>
 
-      <CatalogueClient products={cards} categories={categories} />
+      <CatalogueClient products={cards} categories={categories} priceTable={<PriceTable />} />
     </main>
   );
 }

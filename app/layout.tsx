@@ -37,11 +37,13 @@ const mono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Sankamithra Fireworks — Firecracker Manufacturer, Wholesaler & Retailer, Sivakasi",
+    /* kept under ~60 chars so it survives a search result without a tail */
+    default: "Sankamithra Fireworks — Cracker Manufacturer, Sivakasi",
     template: "%s — Sankamithra Fireworks",
   },
+  /* ~155 chars — the point where result snippets get cut */
   description:
-    "Sankamithra Fireworks manufactures, wholesales and retails licensed firecrackers from Sivakasi, Tamil Nadu. 16-acre licensed unit, 91 items on the 2026 price list, bulk supply across India.",
+    "Licensed firecracker manufacturer, wholesaler and retailer in Sivakasi. 91 items on the 2026 price list at ex-factory rates, supplied in bulk across India.",
   applicationName: site.name,
   authors: [{ name: site.name }],
   openGraph: {
@@ -73,7 +75,7 @@ var e=document.documentElement;e.setAttribute("data-theme",t);e.style.colorSchem
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
-      lang="en"
+      lang="en-IN"
       className={`${display.variable} ${body.variable} ${mono.variable}`}
       data-scroll-behavior="smooth"
       suppressHydrationWarning
