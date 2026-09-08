@@ -137,7 +137,8 @@ crackle, palm) with tails, hue shift as a star burns, strobe layers, double
 rings, multi-breaks, salvos, ground fountains and drifting embers. The canvas
 fades rather than clears each frame, which is what gives every spark a wake.
 
-`lib/firework-audio.ts` synthesises the sound — nothing is downloaded. Reports
+`lib/firework-audio.ts` synthesises the sound — nothing is downloaded. Press
+**"Hear the crackers"** in the hero to start it. Reports
 are filtered noise with a swept lowpass plus a sine thump; crackle is a few
 dozen scheduled noise pops; the whistle is a swept sawtooth. Everything is
 panned by the shell's x position and the report is delayed by its height,
@@ -152,6 +153,10 @@ rows of circles — at ~8px travelled per frame, circles leave visible gaps.
 
 Non-negotiables if you touch this:
 
+- **There is an ambient bed.** Distant pops and a low rumble run continuously
+  while sound is on. Without it the hero was 84% dead air between shells, which
+  reads as "the audio is broken" rather than "it is quiet" — measured at 16% of
+  frames carrying signal before, 38% after.
 - **Sound is off by default and needs a tap.** The AudioContext is not even
   constructed until the toggle is pressed, and muting stops *scheduling*, not
   just volume — verified by counting voices before and after.

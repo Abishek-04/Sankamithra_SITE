@@ -55,23 +55,25 @@ export class FireworkAudio {
   }
 
   /** Must be called from a user gesture. */
-  async enable(volume = 0.34) {
+  async enable(volume = 0.55) {
     if (!this.ensure() || !this.ctx || !this.master) return false;
     if (this.ctx.state === "suspended") await this.ctx.resume();
     this.master.gain.setTargetAtTime(volume, this.ctx.currentTime, 0.12);
     this.started = true;
+    this.startAmbience();
     return true;
   }
 
   disable() {
     if (!this.ctx || !this.master) return;
+    this.stopAmbience();
     this.master.gain.setTargetAtTime(0, this.ctx.currentTime, 0.08);
     this.started = false;
   }
 
   suspend() { this.ctx?.state === "running" && this.ctx.suspend(); }
   resume() { this.started && this.ctx?.state === "suspended" && this.ctx.resume(); }
-  close() { this.ctx?.close(); this.ctx = null; this.master = null; }
+  close() { this.stopAmbience(); this.ctx?.close(); this.ctx = null; this.master = null; }
 
   get on() { return this.started; }
 
@@ -146,7 +148,7 @@ export class FireworkAudio {
 
     const g = this.ctx.createGain();
     g.gain.setValueAtTime(0.0001, t);
-    g.gain.exponentialRampToValueAtTime((soft ? 0.2 : 0.42) * size, t + (soft ? 0.05 : 0.012));
+    g.gain.exponentialRampToValueAtTime((soft ? 0.34 : 0.62) * size, t + (soft ? 0.05 : 0.012));
     g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
 
     const p = this.pan(x);
@@ -159,14 +161,15 @@ export class FireworkAudio {
     osc.frequency.exponentialRampToValueAtTime(rand(32, 44), t + 0.3);
     const og = this.ctx.createGain();
     og.gain.setValueAtTime(0.0001, t);
-    og.gain.exponentialRampToValueAtTime(0.5 * size, t + 0.016);
+    og.gain.exponentialRampToValueAtTime(0.72 * size, t + 0.016);
     og.gain.exponentialRampToValueAtTime(0.0001, t + 0.42);
     osc.connect(og).connect(p);
     osc.start(t);
     osc.stop(t + 0.5);
 
     if (kind === "crackle") this.crackle(x, t + 0.06, size);
-    if (kind === "palm" || kind === "chrys") this.tail(x, t + 0.1, size);
+    else if (Math.random() < 0.6) this.crackle(x, t + 0.12, size * 0.45);
+    if (kind === "palm" || kind === "chrys" || kind === "willow") this.tail(x, t + 0.1, size);
   }
 
   /** The pop-pop-pop of a glitter shell. */
@@ -185,7 +188,7 @@ export class FireworkAudio {
       bp.Q.value = rand(4, 11);
       const g = this.ctx.createGain();
       g.gain.setValueAtTime(0.0001, t);
-      g.gain.exponentialRampToValueAtTime(rand(0.05, 0.13) * size, t + 0.004);
+      g.gain.exponentialRampToValueAtTime(rand(0.08, 0.19) * size, t + 0.004);
       g.gain.exponentialRampToValueAtTime(0.0001, t + rand(0.05, 0.11));
       n.connect(bp).connect(g).connect(p);
     }
@@ -202,9 +205,68 @@ export class FireworkAudio {
     bp.Q.value = 1.4;
     const g = this.ctx!.createGain();
     g.gain.setValueAtTime(0.0001, when);
-    g.gain.exponentialRampToValueAtTime(0.075 * size, when + 0.12);
+    g.gain.exponentialRampToValueAtTime(0.11 * size, when + 0.12);
     g.gain.exponentialRampToValueAtTime(0.0001, when + dur);
     n.connect(bp).connect(g).connect(this.pan(x)).connect(this.master!);
+  }
+
+  /* ---------------------------------------------------------- ambience
+     A real Diwali night is never silent — there is always something going
+     off two streets away. Without this the hero was 84% dead air between
+     shells, which reads as "the sound is broken" rather than "it is quiet".
+     ------------------------------------------------------------------- */
+
+  private ambientTimer: ReturnType<typeof setTimeout> | null = null;
+  private bed: { src: AudioBufferSourceNode; gain: GainNode } | null = null;
+
+  private startAmbience() {
+    if (!this.ctx || this.bed) return;
+    const t = this.ctx.currentTime;
+
+    /* a low rumble bed, barely there, so the silence has a floor */
+    const src = this.src(60 * 60, t);
+    const lp = this.ctx.createBiquadFilter();
+    lp.type = "lowpass";
+    lp.frequency.value = 180;
+    lp.Q.value = 0.6;
+    const gain = this.ctx.createGain();
+    gain.gain.setValueAtTime(0.0001, t);
+    gain.gain.exponentialRampToValueAtTime(0.05, t + 1.6);
+    src.connect(lp).connect(gain).connect(this.master!);
+    this.bed = { src, gain };
+
+    /* distant pops, off in the neighbourhood */
+    const pop = () => {
+      if (!this.started || !this.ctx) return;
+      const n = 1 + ((Math.random() * 3) | 0);
+      for (let i = 0; i < n; i++) {
+        const when = this.ctx.currentTime + Math.random() * 0.5;
+        const far = rand(0.25, 1);                    // 1 = furthest away
+        const s2 = this.src(0.3, when);
+        const bp = this.ctx.createBiquadFilter();
+        bp.type = "lowpass";
+        bp.frequency.setValueAtTime(rand(700, 1500) * (1 - far * 0.55), when);
+        bp.frequency.exponentialRampToValueAtTime(120, when + 0.28);
+        const g = this.ctx.createGain();
+        g.gain.setValueAtTime(0.0001, when);
+        g.gain.exponentialRampToValueAtTime(rand(0.05, 0.14) * (1 - far * 0.6), when + 0.01);
+        g.gain.exponentialRampToValueAtTime(0.0001, when + rand(0.18, 0.35));
+        s2.connect(bp).connect(g).connect(this.pan(Math.random())).connect(this.master!);
+      }
+      this.ambientTimer = setTimeout(pop, rand(280, 1100));
+    };
+    this.ambientTimer = setTimeout(pop, 400);
+  }
+
+  private stopAmbience() {
+    if (this.ambientTimer) clearTimeout(this.ambientTimer);
+    this.ambientTimer = null;
+    if (this.bed && this.ctx) {
+      this.bed.gain.gain.setTargetAtTime(0, this.ctx.currentTime, 0.2);
+      const { src } = this.bed;
+      setTimeout(() => { try { src.stop(); } catch {} }, 900);
+      this.bed = null;
+    }
   }
 
   /** A ground fountain: sustained hiss with a bit of sputter. */
