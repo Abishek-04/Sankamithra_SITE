@@ -340,6 +340,11 @@
   --r-pill: 999px;
 
   --nav-h: 88px;
+  /* How much room the nav is actually taking right now. The bar is fixed and
+     retracts on scroll-down, so anything sticking to "just under the nav" has
+     to follow it — a constant --nav-h leaves a transparent band that the page
+     scrolls through. Nav.tsx keeps this live; --nav-h is the no-JS fallback. */
+  --nav-off: var(--nav-h);
 
   /* ---- Motion ---- */
   --ease: cubic-bezier(0.22, 1, 0.36, 1);

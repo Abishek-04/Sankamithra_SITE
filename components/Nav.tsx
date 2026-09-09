@@ -33,6 +33,7 @@ export default function Nav() {
        the night palette until it has scrolled clear of it, so its links never
        sit invisibly on the dark hero. */
     const band = document.querySelector<HTMLElement>(".hero, .page-head");
+    const root = document.documentElement;
     let lastY = scrollY;
 
     const onScroll = () => {
@@ -42,16 +43,29 @@ export default function Nav() {
 
       const delta = y - lastY;
       // a large delta is a jump (anchor link, restored position) — never hide for those
-      setHidden(!open && y > 480 && delta > 6 && delta < 140);
+      const hide = !open && y > 480 && delta > 6 && delta < 140;
+      setHidden(hide);
       lastY = y;
+
+      /* Publish the room the bar is actually occupying. The catalogue toolbar
+         and the sticky rails hang off this; with a constant --nav-h they stayed
+         a nav-height down the screen after the bar retracted, leaving a
+         see-through band that the cards scrolled through. */
+      root.style.setProperty("--nav-off", (hide ? 0 : bar.offsetHeight) + "px");
 
       const max = document.documentElement.scrollHeight - innerHeight;
       bar.style.setProperty("--p", String(max > 0 ? Math.min(1, Math.max(0, y / max)) : 0));
     };
 
     addEventListener("scroll", onScroll, { passive: true });
+    // the bar is shorter under 720px, so a rotate changes what it occupies
+    addEventListener("resize", onScroll, { passive: true });
     onScroll();
-    return () => removeEventListener("scroll", onScroll);
+    return () => {
+      removeEventListener("scroll", onScroll);
+      removeEventListener("resize", onScroll);
+      root.style.removeProperty("--nav-off");
+    };
   }, [open]);
 
   /* scroll-spy for the in-page sections on the home route */

@@ -107,8 +107,10 @@ allOk &= await step("initial load");
 allOk &= await step("filter → Flower Pots", () => click("Flower Pots"));
 allOk &= await step("clear → All products", () => click("All products"));
 allOk &= await step("load more", () => click("Load "));
-allOk &= await step("sort → rate high→low", () =>
-  page.select("select.select", "price-desc"));
+/* "price-desc" went away with the rates; page.select on a missing value is a
+   silent no-op, so that step passed without sorting anything. */
+allOk &= await step("sort → name A–Z", () =>
+  page.select("select.select", "name"));
 allOk &= await step("search 'pencil'", async () => {
   await page.click(".search input");
   await page.type(".search input", "pencil", { delay: 12 });

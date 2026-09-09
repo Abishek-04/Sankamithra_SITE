@@ -30,12 +30,17 @@
 
 .tools {
   position: sticky;
-  top: var(--nav-h);
+  top: var(--nav-off);
+  /* rides up with the retracting nav rather than snapping ahead of it */
+  transition: top 0.5s var(--ease);
   z-index: 500;
   padding-block: 0.9rem;
   background: var(--glass-2);
+  /* Standard property only. Hand-writing the -webkit- twin after it made the
+     minifier keep the prefixed one and drop the standard — and Chrome removed
+     that alias, so the blur silently vanished everywhere but Safari. The build
+     adds whatever prefix its targets need. */
   backdrop-filter: blur(16px) saturate(160%);
-  -webkit-backdrop-filter: blur(16px) saturate(160%);
   border-bottom: 1px solid var(--line);
 }
 .tools__row {
@@ -147,7 +152,7 @@
   gap: 1.5rem;
   align-content: start;
 }
-@media (min-width: 981px) { .facets { position: sticky; top: calc(var(--nav-h) + 88px); } }
+@media (min-width: 981px) { .facets { position: sticky; top: calc(var(--nav-off) + 88px); transition: top 0.5s var(--ease); } }
 
 .facet h3 {
   font-family: var(--font-mono);
@@ -235,7 +240,7 @@
 @media (max-width: 900px) { .pdp { grid-template-columns: 1fr; } }
 
 .pgal { display: grid; gap: 0.85rem; }
-@media (min-width: 981px) { .pgal { position: sticky; top: calc(var(--nav-h) + 32px); } }
+@media (min-width: 981px) { .pgal { position: sticky; top: calc(var(--nav-off) + 32px); transition: top 0.5s var(--ease); } }
 
 .pgal__main {
   position: relative;
