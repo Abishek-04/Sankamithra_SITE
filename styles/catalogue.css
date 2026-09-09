@@ -555,8 +555,6 @@
 .ptable__sno a:hover { text-decoration: underline; }
 .ptable__name { color: var(--tx-hi); font-weight: 600; }
 .ptable__name a:hover { color: var(--accent); }
-.ptable__rate { font-weight: 800; color: var(--tx-hi); white-space: nowrap; }
-.ptable--num { text-align: right; }
 
 @media print {
   .ptable-scroll { overflow: visible; box-shadow: none; }

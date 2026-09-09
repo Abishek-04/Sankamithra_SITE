@@ -7,6 +7,7 @@ import { Arrow } from "./Icons";
 /**
  * One row of the printed price list:
  * S.No · Item Name · Box Contents · Price · Per rate · Cs/Cont
+ * `showPrice={false}` drops the rate for surfaces that quote on enquiry.
  *
  * Server component — the whole grid ships as HTML with no client cost.
  */
@@ -15,13 +16,16 @@ export default function ProductCard({
   index = 0,
   priority = false,
   sizes = "(max-width: 560px) 50vw, (max-width: 980px) 33vw, 25vw",
+  showPrice = true,
 }: {
   p: CardProduct;
   index?: number;
   priority?: boolean;
   sizes?: string;
+  /** The catalogue grid quotes on enquiry, so it renders the card without a rate. */
+  showPrice?: boolean;
 }) {
-  const unit = unitPrice(p);
+  const unit = showPrice ? unitPrice(p) : null;
   const img = p.img;
 
   return (
@@ -42,10 +46,12 @@ export default function ProductCard({
       <div className="pcard__body">
         <h3 className="pcard__name">{p.name}</h3>
 
-        <div className="pcard__price">
-          <span className="pcard__amt">{money(p.price)}</span>
-          <span className="pcard__per">per {perLabel(p.per)}</span>
-        </div>
+        {showPrice && (
+          <div className="pcard__price">
+            <span className="pcard__amt">{money(p.price)}</span>
+            <span className="pcard__per">per {perLabel(p.per)}</span>
+          </div>
+        )}
         {unit && <p className="pcard__each">{moneyFine(unit.each)} per packet</p>}
 
         <dl className="pcard__spec">

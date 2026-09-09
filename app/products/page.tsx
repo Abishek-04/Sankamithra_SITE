@@ -68,12 +68,12 @@ export default function CataloguePage() {
           </nav>
           <h1 className="h1" data-split="">The 2026 price list, in full.</h1>
           <p className="lead" data-reveal="" data-delay="180">
-            All {products.length} items exactly as printed — S.No, box contents, rate, the unit
-            that rate applies to, and the case quantity. Ex-factory, effective 1 May 2026.
+            All {products.length} items exactly as printed — S.No, box contents, the unit each
+            item is sold by, and the case quantity. Rates are ex-factory and quoted on enquiry.
           </p>
           <p className="pricebar" data-reveal="" data-delay="240">
             <span className="chip"><span className="chip__dot" />Effective 1 May 2026</span>
-            <span className="chip">Ex-factory rates</span>
+            <span className="chip">Ex-factory rates on enquiry</span>
             <span className="chip">H&amp;F 3% extra</span>
             <span className="chip">GST extra</span>
           </p>

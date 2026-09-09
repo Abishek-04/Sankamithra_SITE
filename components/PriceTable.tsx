@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getProducts } from "@/lib/products";
-import { money, perLabel } from "@/lib/format";
+import { perLabel } from "@/lib/format";
 import { site } from "@/lib/site";
 
 /**
@@ -10,7 +10,7 @@ import { site } from "@/lib/site";
  * engine asked "what does Sankamithra charge for a Kuruvi cracker" — only ever
  * saw a quarter of the list. Every one of the 91 rows is in this markup,
  * unfiltered and unpaginated, and it happens to be the format a buyer wants to
- * scan or print anyway.
+ * scan or print anyway. Rates are quoted on enquiry, so no column carries one.
  */
 export default function PriceTable() {
   const products = getProducts();
@@ -31,8 +31,9 @@ export default function PriceTable() {
           The complete {site.priceList.label}
         </h2>
         <p>
-          All {products.length} items as printed. Rates are ex-factory and quoted per the
-          unit in the “Per” column — {site.priceList.effective.toLowerCase()}.
+          All {products.length} items as printed, sold per the unit in the “Per” column.
+          Rates are ex-factory and quoted on enquiry — send us your S.No list for current
+          slab rates.
         </p>
       </div>
 
@@ -40,14 +41,13 @@ export default function PriceTable() {
         <table className="ptable">
           <caption className="sr-only">
             Sankamithra Fireworks {site.priceList.label} — {products.length} items with S.No,
-            box contents, rate, rate unit and case quantity.
+            box contents, sale unit and case quantity.
           </caption>
           <thead>
             <tr>
               <th scope="col">S.No</th>
               <th scope="col">Item</th>
               <th scope="col">Box contents</th>
-              <th scope="col" className="ptable--num">Rate</th>
               <th scope="col">Per</th>
               <th scope="col">Cs / Cont</th>
             </tr>
@@ -55,7 +55,7 @@ export default function PriceTable() {
           {groups.map((g) => (
             <tbody key={g.category}>
               <tr className="ptable__group">
-                <th scope="rowgroup" colSpan={6}>
+                <th scope="rowgroup" colSpan={5}>
                   {g.category} <span>{g.rows.length} items</span>
                 </th>
               </tr>
@@ -68,7 +68,6 @@ export default function PriceTable() {
                     <Link href={`/products/${p.sno}`}>{p.name}</Link>
                   </td>
                   <td>{p.contents || "—"}</td>
-                  <td className="ptable--num ptable__rate">{money(p.price)}</td>
                   <td>{perLabel(p.per)}</td>
                   <td>{p.case}</td>
                 </tr>

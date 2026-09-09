@@ -79,7 +79,8 @@ price-list item at ${URL}/products/<S.No>.
 
 ---
 Generated from the site's own data on ${new Date().toISOString().slice(0, 10)}.
-Every figure here also appears on ${URL}/products.
+Every item here is listed on ${URL}/products; per-item rates are on each
+item's own page at ${URL}/products/<S.No>.
 `;
 
 writeFileSync("public/llms.txt", out);
