@@ -380,6 +380,27 @@
   grid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr));
 }
 
+/* Two-up on a phone. The catalogue card is built for it — its `sizes` already
+   asks the browser for 50vw below 560px — but auto-fill's 212px floor is wider
+   than half a 390px screen, so the track count collapsed to one. Pinning the
+   count is the only thing that holds two columns on a narrow viewport.
+   The home rail keeps its single wide card (it asks for 92vw). */
+@media (max-width: 560px) {
+  .pgrid:not(.pgrid--home) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  /* Two-up leaves ~120px inside the card. "Box contents" and its value no
+     longer share a baseline there — the label wrapped under a value pinned to
+     the first line — so stack them, and drop the title a notch so fewer names
+     hit the two-line clamp. The home rail is untouched: its card is 92vw. */
+  .pgrid:not(.pgrid--home) .pcard__spec > div {
+    display: block;
+    padding: 0.4rem 0.55rem;
+  }
+  .pgrid:not(.pgrid--home) .pcard__spec dd { margin-top: 0.08rem; white-space: normal; }
+  .pgrid:not(.pgrid--home) .pcard__body { padding: 0.8rem 0.75rem 0.9rem; }
+  .pgrid:not(.pgrid--home) .pcard__name { font-size: 0.88rem; }
+}
+
 .empty {
   grid-column: 1 / -1;
   display: grid;
