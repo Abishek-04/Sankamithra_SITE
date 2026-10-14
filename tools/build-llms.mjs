@@ -17,7 +17,6 @@ const faq = [...faqSrc.matchAll(/q:\s*"((?:[^"\\]|\\.)*)",\s*\n\s*a:\s*"((?:[^"\
 
 const URL = "https://sankamithra.com";
 const cats = [...new Set(products.map((p) => p.category))];
-const money = (n) => "₹" + Number(n).toLocaleString("en-IN");
 
 const table = cats
   .map((c) => {
@@ -25,10 +24,10 @@ const table = cats
     return [
       `### ${c} (${rows.length})`,
       "",
-      "| S.No | Item | Box contents | Rate | Per | Cs/Cont |",
-      "| --- | --- | --- | --- | --- | --- |",
+      "| S.No | Item | Box contents | Per | Cs/Cont |",
+      "| --- | --- | --- | --- | --- |",
       ...rows.map((p) =>
-        `| ${p.sno} | ${p.name} | ${p.contents || "—"} | ${money(p.price)} | ${p.per} | ${p.case} |`),
+        `| ${p.sno} | ${p.name} | ${p.contents || "—"} | ${p.per} | ${p.case} |`),
       "",
     ].join("\n");
   })
@@ -52,16 +51,14 @@ const out = `# Sankamithra Fireworks
 
 ## Pricing terms
 
-All rates below are **ex-factory**, effective **1 May 2026**. Handling and
+Rates are **ex-factory** and quoted on enquiry, effective **1 May 2026**. Handling and
 forwarding at 3% is extra, as are GST and bank commission. Orders require 100%
 advance. Prices are subject to revision without prior notice; the order
 document is the final confirmation. Jurisdiction: Sivakasi.
 
-Each rate is quoted **per the unit named in the "Per" column** — a box, a
-piece, a bag, or a count of packets. Rates are therefore not directly
-comparable between categories. Where an item is quoted per many packets, the
-per-packet figure is the rate divided by that count (for example S201 is
-₹7,300 per 1,000 packets, i.e. ₹7.30 per packet).
+Each item is sold **per the unit named in the "Per" column** — a box, a
+piece, a bag, or a count of packets. Send an S.No list with quantities for a
+quote.
 
 Wholesale slab rates begin at 50 boxes.
 
@@ -79,8 +76,8 @@ price-list item at ${URL}/products/<S.No>.
 
 ---
 Generated from the site's own data on ${new Date().toISOString().slice(0, 10)}.
-Every item here is listed on ${URL}/products; per-item rates are on each
-item's own page at ${URL}/products/<S.No>.
+Every item here is listed on ${URL}/products, with its own page at
+${URL}/products/<S.No>. Rates are quoted on enquiry.
 `;
 
 writeFileSync("public/llms.txt", out);

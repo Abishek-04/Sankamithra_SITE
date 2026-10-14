@@ -11,7 +11,7 @@ import { getProduct, getProducts, getRelated } from "@/lib/products";
 import { getVideoForProduct, shortTitle, thumb, thumbHi, thumbSrcSet, watchUrl } from "@/lib/videos";
 import VideoPlayer from "@/components/VideoPlayer";
 import { toCard } from "@/lib/card";
-import { money, moneyFine, perLabel, unitPrice, waLink } from "@/lib/format";
+import { perLabel, waLink } from "@/lib/format";
 import { site } from "@/lib/site";
 import { breadcrumbs, graph, ORG_ID } from "@/lib/schema";
 import { Arrow, Info, Whatsapp } from "@/components/Icons";
@@ -29,9 +29,9 @@ export async function generateMetadata({ params }: { params: Promise<{ sno: stri
   if (!p) return { title: "Product not found" };
 
   const desc =
-    `${p.name} (${p.sno}) — ${money(p.price)} per ${perLabel(p.per)}` +
+    `${p.name} (${p.sno}) — sold per ${perLabel(p.per)}` +
     (p.contents ? `, ${p.contents} per box` : "") +
-    `, ${p.case} per case. Ex-factory rate from Sankamithra Fireworks, Sivakasi.`;
+    `, ${p.case} per case. Ex-factory rate on enquiry from Sankamithra Fireworks, Sivakasi.`;
 
   return {
     title: `${p.sno} ${p.name}`,
@@ -52,7 +52,6 @@ export default async function ProductPage({ params }: { params: Promise<{ sno: s
   const p = getProduct(sno);
   if (!p) notFound();
 
-  const unit = unitPrice(p);
   const related = getRelated(p);
   const video = getVideoForProduct(p.sno);
 
@@ -70,7 +69,7 @@ export default async function ProductPage({ params }: { params: Promise<{ sno: s
     description: p.unitNote,
     brand: { "@type": "Brand", name: site.name },
     image: p.images.map((i) => `https://res.cloudinary.com/${site.cloudName}/image/upload/f_auto,q_auto,c_limit,w_1200/${i}`),
-    /* the printed columns, so the rate is machine-readable in context */
+    /* the printed columns, machine-readable in context */
     additionalProperty: [
       { "@type": "PropertyValue", name: "S.No", value: p.sno },
       ...(p.contents ? [{ "@type": "PropertyValue", name: "Box contents", value: p.contents }] : []),
@@ -79,20 +78,10 @@ export default async function ProductPage({ params }: { params: Promise<{ sno: s
     ],
     offers: {
       "@type": "Offer",
-      price: p.price,
-      priceCurrency: "INR",
       availability: "https://schema.org/InStock",
       url: `${site.url}/products/${p.sno}`,
       seller: { "@id": ORG_ID },
-      priceValidUntil: "2027-04-30",
       eligibleQuantity: { "@type": "QuantitativeValue", unitText: p.per },
-      priceSpecification: {
-        "@type": "UnitPriceSpecification",
-        price: p.price,
-        priceCurrency: "INR",
-        referenceQuantity: { "@type": "QuantitativeValue", unitText: p.per },
-        valueAddedTaxIncluded: false,
-      },
     },
     },
   );
@@ -138,9 +127,7 @@ export default async function ProductPage({ params }: { params: Promise<{ sno: s
             </div>
 
             <div className="pdp__pricebox">
-              <span className="pdp__now">{money(p.price)}</span>
-              <span className="pdp__per">per {perLabel(p.per)}</span>
-              {unit && <span className="pdp__save">{moneyFine(unit.each)} per packet</span>}
+              <span className="pdp__per">Rate on enquiry · sold per {perLabel(p.per)}</span>
             </div>
 
             <dl className="pdp__facts">

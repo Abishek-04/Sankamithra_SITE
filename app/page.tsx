@@ -311,8 +311,8 @@ export default function Home() {
             </div>
             <div style={{ display: "grid", gap: "1.15rem", justifyItems: "start" }}>
               <p data-reveal="">
-                {total} items across 11 families on the 2026 list — from a ₹12 bijili bag
-                to a 240-shot repeater. Every rate is ex-factory.
+                {total} items across 11 families on the 2026 list — from a bijili bag
+                to a 240-shot repeater. Every rate is ex-factory, quoted on enquiry.
               </p>
               <Link className="btn btn--ghost" href="/products" data-reveal="" data-delay="120">
                 View the 2026 price list<span className="btn__ico" aria-hidden="true"><Arrow /></span>

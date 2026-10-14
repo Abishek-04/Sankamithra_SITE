@@ -34,6 +34,14 @@ export default function Nav() {
        sit invisibly on the dark hero. */
     const band = document.querySelector<HTMLElement>(".hero, .page-head");
     const root = document.documentElement;
+
+    /* A page carrying a search field keeps the nav pinned. That field lives in
+       a toolbar docked under the nav, so retracting the bar dragged the search
+       box up to the screen edge mid-scroll — the control moved out from under
+       the thumb that was reaching for it. Search pages are scanned, not read
+       top-to-bottom, so the row of controls is worth more than the reclaimed
+       height. Pages without one keep the auto-hide. */
+    const pinned = !!document.querySelector('input[type="search"]');
     let lastY = scrollY;
 
     const onScroll = () => {
@@ -43,7 +51,7 @@ export default function Nav() {
 
       const delta = y - lastY;
       // a large delta is a jump (anchor link, restored position) — never hide for those
-      const hide = !open && y > 480 && delta > 6 && delta < 140;
+      const hide = !pinned && !open && y > 480 && delta > 6 && delta < 140;
       setHidden(hide);
       lastY = y;
 
@@ -66,7 +74,8 @@ export default function Nav() {
       removeEventListener("resize", onScroll);
       root.style.removeProperty("--nav-off");
     };
-  }, [open]);
+    // re-checked per route: the nav persists across client-side navigation
+  }, [open, pathname]);
 
   /* scroll-spy for the in-page sections on the home route */
   useEffect(() => {

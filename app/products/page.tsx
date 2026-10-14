@@ -14,7 +14,7 @@ import { breadcrumbs, graph, ORG_ID } from "@/lib/schema";
 export const metadata: Metadata = {
   title: "2026 Price List — 91 items, ex-factory",
   description:
-    "The full Sankamithra Fireworks 2026 price list: 91 items with S.No, box contents, rate and case quantity. Ex-factory, effective 1 May 2026. Wholesale from 50 boxes.",
+    "The full Sankamithra Fireworks 2026 price list: 91 items with S.No, box contents and case quantity. Ex-factory rates on enquiry, effective 1 May 2026. Wholesale from 50 boxes.",
   alternates: { canonical: "/products" },
 };
 
@@ -44,12 +44,9 @@ export default function CataloguePage() {
         brand: { "@type": "Brand", name: site.name },
         offers: {
           "@type": "Offer",
-          price: p.price,
-          priceCurrency: "INR",
           availability: "https://schema.org/InStock",
           url: `${site.url}/products/${p.sno}`,
           seller: { "@id": ORG_ID },
-          priceValidUntil: "2027-04-30",
         },
       },
     })),

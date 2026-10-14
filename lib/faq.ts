@@ -19,7 +19,7 @@ export const FAQ = [
   },
   {
     q: "How is the rate calculated — per piece or per box?",
-    a: "Each row is quoted per its own unit, shown in the Per column. A box of Lucky Money is ₹140 per box of 3 pieces. One Sound crackers are quoted per packet count, so 2¾ inch Kuruvi is ₹7,300 per 1,000 packets, which works out to ₹7.30 a packet. Rates are not directly comparable across categories.",
+    a: "Each row is quoted per its own unit, shown in the Per column. A box of Lucky Money is sold per box of 3 pieces. One Sound crackers are quoted per packet count, so 2¾ inch Kuruvi is quoted per 1,000 packets. Rates are not directly comparable across categories, and every rate is quoted on enquiry.",
   },
   {
     q: "Do you deliver outside Tamil Nadu?",

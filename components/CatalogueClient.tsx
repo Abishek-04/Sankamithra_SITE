@@ -156,7 +156,7 @@ export default function CatalogueClient({
           {slice.length ? (
             <div className="pgrid">
               {slice.map((p, i) => (
-                <ProductCard key={p.sno} p={p} index={i} priority={i < 4} showPrice={false} />
+                <ProductCard key={p.sno} p={p} index={i} priority={i < 4} />
               ))}
             </div>
           ) : (

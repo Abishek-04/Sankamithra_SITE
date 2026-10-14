@@ -7,7 +7,7 @@ import type { Product } from "./products";
  */
 export type CardProduct = Pick<
   Product,
-  "sno" | "name" | "category" | "categoryOrder" | "contents" | "price" | "per" | "case"
+  "sno" | "name" | "category" | "categoryOrder" | "contents" | "per" | "case"
 > & { img: string | null };
 
 export const toCard = (p: Product): CardProduct => ({
@@ -16,7 +16,6 @@ export const toCard = (p: Product): CardProduct => ({
   category: p.category,
   categoryOrder: p.categoryOrder,
   contents: p.contents,
-  price: p.price,
   per: p.per,
   case: p.case,
   img: p.images[0] ?? null,
